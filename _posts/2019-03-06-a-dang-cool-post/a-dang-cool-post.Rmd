@@ -3,12 +3,16 @@ title: "A dang cool post"
 description: |
   A short description of the post.
 author:
-  - name: Nora Jones
-    url: https://example.com/norajones
+  - name: Andrew Edelblum
+    url: https://twitter.com/andrewedelblum
 date: 03-06-2019
 output:
   distill::distill_article:
     self_contained: false
+categories:
+  - dataviz
+  - class
+  - cool stuff
 ---
 
 ```{r setup, include=FALSE}

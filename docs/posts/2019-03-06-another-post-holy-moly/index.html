@@ -45,12 +45,12 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Another post, holy moly!"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["03-06-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Another post, holy moly!"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://twitter.com/andrewedelblum"]}]}]},{"type":"character","attributes":{},"value":["03-06-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["dataviz","class","cool stuff"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["another-post-holy-moly_files/figure-html5/plot1-1.png"]}
+  {"type":"character","attributes":{},"value":["another-post-holy-moly_files/bowser-1.9.3/bowser.min.js","another-post-holy-moly_files/distill-2.2.21/template.v2.js","another-post-holy-moly_files/figure-html5/plot1-1.png","another-post-holy-moly_files/jquery-1.11.3/jquery.min.js","another-post-holy-moly_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1280,7 +1280,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Another post, holy moly!","description":"A short description of the post.","authors":[{"author":"Nora Jones","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-03-06T00:00:00.000-08:00","citationText":"Jones, 2019"}
+{"title":"Another post, holy moly!","description":"A short description of the post.","authors":[{"author":"Nora Jones","authorURL":"https://twitter.com/andrewedelblum","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-03-06T00:00:00.000-08:00","citationText":"Jones, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1307,7 +1307,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="d-byline">
-  Nora Jones <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> 
+  Nora Jones <a href="https://twitter.com/andrewedelblum" class="uri">https://twitter.com/andrewedelblum</a> 
   
 <br/>03-06-2019
 </div>
@@ -1315,6 +1315,21 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="d-article">
 <p>You thought I was done for the day!? Well, you are mistaken! Here’s a second post, all for your viewing pleasure.</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre><code>
+# A tibble: 234 x 11
+   manufacturer model displ  year   cyl trans drv     cty   hwy fl   
+   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;
+ 1 audi         a4      1.8  1999     4 auto… f        18    29 p    
+ 2 audi         a4      1.8  1999     4 manu… f        21    29 p    
+ 3 audi         a4      2    2008     4 manu… f        20    31 p    
+ 4 audi         a4      2    2008     4 auto… f        21    30 p    
+ 5 audi         a4      2.8  1999     6 auto… f        16    26 p    
+ 6 audi         a4      2.8  1999     6 manu… f        18    26 p    
+ 7 audi         a4      3.1  2008     6 auto… f        18    27 p    
+ 8 audi         a4 q…   1.8  1999     4 manu… 4        18    26 p    
+ 9 audi         a4 q…   1.8  1999     4 auto… 4        16    25 p    
+10 audi         a4 q…   2    2008     4 manu… 4        20    28 p    
+# … with 224 more rows, and 1 more variable: class &lt;chr&gt;</code></pre>
 <p><img src="another-post-holy-moly_files/figure-html5/plot1-1.png" width="624" /></p>
 </div>
 <p>This plot is absolutely terrible!</p>

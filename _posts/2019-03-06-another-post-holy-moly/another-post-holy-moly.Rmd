@@ -4,11 +4,15 @@ description: |
   A short description of the post.
 author:
   - name: Nora Jones
-    url: https://example.com/norajones
+    url: https://twitter.com/andrewedelblum
 date: 03-06-2019
 output:
   distill::distill_article:
     self_contained: false
+categories:
+  - dataviz
+  - class
+  - cool stuff
 ---
 
 ```{r setup, include=FALSE}
@@ -19,8 +23,9 @@ library(tidyverse)
 You thought I was done for the day!? Well, you are mistaken! Here's a second post, all for your viewing pleasure.
 
 ```{r plot1}
-ggplot(mpg, aes(x = cyl, y = cty, fill = class)) +
-  geom_bar(stat = "summary", position = "dodge")
+mpg
+ggplot(mpg, aes(x = reorder(class, cty), y = cty)) +
+  geom_bar(stat = "summary")
 ```
 
 This plot is absolutely terrible!
