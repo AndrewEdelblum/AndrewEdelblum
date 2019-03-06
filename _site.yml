@@ -4,9 +4,14 @@ description: |
   The Big Boy Blog
 output_dir: "docs"
 navbar:
+  left:
+    - text: "Stuff"
+      href: Final_Project.html
   right:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
+    - icon: fa fa-github
+      href: https://github.com/AndrewEdelblum/Class-Website-2
 output: distill::distill_article

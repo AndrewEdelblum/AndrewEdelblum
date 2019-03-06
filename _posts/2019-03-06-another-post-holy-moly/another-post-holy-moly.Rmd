@@ -3,7 +3,7 @@ title: "Another post, holy moly!"
 description: |
   A short description of the post.
 author:
-  - name: Nora Jones
+  - name: Andrew Edelblum
     url: https://twitter.com/andrewedelblum
 date: 03-06-2019
 output:

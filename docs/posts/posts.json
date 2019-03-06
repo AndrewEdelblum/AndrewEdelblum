@@ -16,7 +16,26 @@
       "cool stuff"
     ],
     "preview": "posts/2019-03-06-a-dang-cool-post/a-dang-cool-post_files/figure-html5/plot1-1.png",
-    "last_modified": "2019-03-06T11:04:26-08:00"
+    "last_modified": "2019-03-06T11:04:27-08:00"
+  },
+  {
+    "path": "posts/2019-03-06-another-post-holy-moly/",
+    "title": "Another post, holy moly!",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Andrew Edelblum",
+        "url": "https://twitter.com/andrewedelblum"
+      }
+    ],
+    "date": "2019-03-06",
+    "categories": [
+      "dataviz",
+      "class",
+      "cool stuff"
+    ],
+    "preview": "posts/2019-03-06-another-post-holy-moly/another-post-holy-moly_files/figure-html5/plot1-1.png",
+    "last_modified": "2019-03-06T11:06:38-08:00"
   },
   {
     "path": "posts/welcome/",
@@ -32,24 +51,5 @@
     "categories": [],
     "preview": {},
     "last_modified": "2019-03-06T10:31:29-08:00"
-  },
-  {
-    "path": "posts/2019-03-06-another-post-holy-moly/",
-    "title": "Another post, holy moly!",
-    "description": "A short description of the post.",
-    "author": [
-      {
-        "name": "Nora Jones",
-        "url": "https://twitter.com/andrewedelblum"
-      }
-    ],
-    "date": "2019-03-06",
-    "categories": [
-      "dataviz",
-      "class",
-      "cool stuff"
-    ],
-    "preview": "posts/2019-03-06-another-post-holy-moly/another-post-holy-moly_files/figure-html5/plot1-1.png",
-    "last_modified": "2019-03-06T11:04:19-08:00"
   }
 ]
