@@ -28,5 +28,20 @@
     "categories": [],
     "preview": {},
     "last_modified": "2019-03-06T10:31:29-08:00"
+  },
+  {
+    "path": "posts/2019-03-06-another-post-holy-moly/",
+    "title": "Another post, holy moly!",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-03-06",
+    "categories": [],
+    "preview": "posts/2019-03-06-another-post-holy-moly/another-post-holy-moly_files/figure-html5/plot1-1.png",
+    "last_modified": "2019-03-06T10:57:16-08:00"
   }
 ]

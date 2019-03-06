@@ -1,0 +1,26 @@
+---
+title: "Another post, holy moly!"
+description: |
+  A short description of the post.
+author:
+  - name: Nora Jones
+    url: https://example.com/norajones
+date: 03-06-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+You thought I was done for the day!? Well, you are mistaken! Here's a second post, all for your viewing pleasure.
+
+```{r plot1}
+ggplot(mpg, aes(x = cyl, y = cty, fill = class)) +
+  geom_bar(stat = "summary", position = "dodge")
+```
+
+This plot is absolutely terrible!
