@@ -1,0 +1,12 @@
+name: "Class-Website-2"
+title: "The Big Boy Blog"
+description: |
+  The Big Boy Blog
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article
