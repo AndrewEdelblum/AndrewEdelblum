@@ -1,0 +1,27 @@
+---
+title: "A dang cool post"
+description: |
+  A short description of the post.
+author:
+  - name: Nora Jones
+    url: https://example.com/norajones
+date: 03-06-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+Here is a figure that will absolutely **BLOW YOUR MIND**!!
+
+```{r plot1}
+ggplot(mpg, aes(x = displ, y = cty)) +
+  geom_point(aes(color = drv)) +
+  geom_smooth()
+```
+
+Now wasn't that *brilliant*!?

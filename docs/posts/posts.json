@@ -1,5 +1,20 @@
 [
   {
+    "path": "posts/2019-03-06-a-dang-cool-post/",
+    "title": "A dang cool post",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-03-06",
+    "categories": [],
+    "preview": "posts/2019-03-06-a-dang-cool-post/a-dang-cool-post_files/figure-html5/plot1-1.png",
+    "last_modified": "2019-03-06T10:51:34-08:00"
+  },
+  {
     "path": "posts/welcome/",
     "title": "Welcome to The Big Boy Blog",
     "description": "Welcome to our new blog, The Big Boy Blog. We hope you enjoy \nreading what we have to say!",
