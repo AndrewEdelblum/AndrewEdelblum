@@ -1,5 +1,20 @@
 [
   {
+    "path": "posts/2019-03-14-cv/",
+    "title": "CV",
+    "description": "Like me, a work in progress and updating constantly.",
+    "author": [
+      {
+        "name": "Andrew Edelblum",
+        "url": "https://twitter.com/andrewedelblum"
+      }
+    ],
+    "date": "2019-03-14",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-03-14T07:10:29-07:00"
+  },
+  {
     "path": "posts/2019-03-13-my-favorite-songs-of-all-time/",
     "title": "My Favorite Songs of All Time",
     "description": "I'm a big music fan, so I ranked my favorite tracks",
@@ -12,7 +27,7 @@
     "date": "2019-03-13",
     "categories": [],
     "preview": "posts/2019-03-13-my-favorite-songs-of-all-time/my-favorite-songs-of-all-time_files/figure-html5/release-1.png",
-    "last_modified": "2019-03-13T12:42:31-07:00"
+    "last_modified": "2019-03-14T08:30:11-07:00"
   },
   {
     "path": "posts/2019-03-07-edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism/",

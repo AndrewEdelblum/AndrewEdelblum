@@ -49,7 +49,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["my-favorite-songs-of-all-time_files/bowser-1.9.3/bowser.min.js","my-favorite-songs-of-all-time_files/distill-2.2.21/template.v2.js","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png","my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png","my-favorite-songs-of-all-time_files/figure-html5/release-1.png","my-favorite-songs-of-all-time_files/jquery-1.11.3/jquery.min.js","my-favorite-songs-of-all-time_files/kePrint-0.0.1/kePrint.js","my-favorite-songs-of-all-time_files/webcomponents-2.0.0/webcomponents.js","songs.csv"]}
+  {"type":"character","attributes":{},"value":["my-favorite-songs-of-all-time_files/bowser-1.9.3/bowser.min.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/css/crosstalk.css","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.js.map","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.min.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.min.js.map","my-favorite-songs-of-all-time_files/distill-2.2.21/template.v2.js","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery-1.png","my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png","my-favorite-songs-of-all-time_files/figure-html5/release-1.png","my-favorite-songs-of-all-time_files/htmlwidgets-1.3/htmlwidgets.js","my-favorite-songs-of-all-time_files/jquery-1.11.3/jquery.min.js","my-favorite-songs-of-all-time_files/kePrint-0.0.1/kePrint.js","my-favorite-songs-of-all-time_files/plotly-binding-4.8.0/plotly.js","my-favorite-songs-of-all-time_files/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css","my-favorite-songs-of-all-time_files/plotly-main-1.39.2/plotly-latest.min.js","my-favorite-songs-of-all-time_files/typedarray-0.1/typedarray.min.js","my-favorite-songs-of-all-time_files/webcomponents-2.0.0/webcomponents.js","songs.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -927,7 +927,6 @@
   </script>
   
   <!--/radix_placeholder_distill-->
-  <script src="my-favorite-songs-of-all-time_files/kePrint-0.0.1/kePrint.js"></script>
   <script src="my-favorite-songs-of-all-time_files/jquery-1.11.3/jquery.min.js"></script>
   <script src="my-favorite-songs-of-all-time_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="my-favorite-songs-of-all-time_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -964,41 +963,28 @@
 </div>
 
 <div class="d-article">
-<p>Wow, another year gone!</p>
-<p>For those who know and those who don’t, two of my best friends and I have a tradition of ranking our 100 favorite songs of all time at the end of each year. It’s an annual project we started our sophomore year of college, and something we do consistently to this day. As it stands now, 2017 marks our <em>fifth</em> year ranking our favorite songs!</p>
-<p>A common question I get about the ranking project is, “Do your favorite songs really change <em>that</em> much from year to year?”</p>
-<p>The answer to that, surprisingly, is yes. Every year brings new songs to my attention – or introduces me to old classics I should’ve listened to years ago. Charting my favorite songs is an iterative process that, for whatever reason, feels new and exciting every December when I sit down to do it. It doesn’t matter how much overlap there is between this year and the last. The way I see it, I’m logging my life through music. Even the tiniest change is worth capturing forever.</p>
-<h2 id="what-is-this-document">What Is This Document?</h2>
-<p>What you see here is an HTML document brought to you by some coding in a program called RStudio.</p>
-<p>“So, where did that come from? You code now, bro?”</p>
-<p>Yes, kind of… But first, let’s back up a bit.</p>
-<p>What started in 2013 as a basic list of my favorite songs quickly evolved over the years to become a more involved process. First, I started making PDF documents ranking my favorite tracks, complete with a favorite lyric from each pick. Then, I put Spotify playlists together. Heck, I even made YouTube videos describing the personal meaning behind why I chose each individual track to be part of my list.</p>
-<p>But this year is different. I’m trying something totally brand-new with my top 100: I’m thinking of it as data.</p>
-<p>Just this past September, I started my first term of grad school at the University of Oregon. A lot of what I’m learning there is based around data science, and a large part of that journey has been spent using a program called RStudio, which involves… coding. It was difficult getting started, but now I try to use RStudio every opportunity I can. Why not use it to have some fun and get analytical with my favorite songs of all time? Taking this on is the perfect way to both review and celebrate what I’ve learned so far in grad school. Let’s get started!</p>
-<p>Oh, and sidenote: I’m really not all that great with coding just yet, but just as I look to chart changes in my music taste over time, I’m also excited to see my coding skills improve from year to year. Lord knows what I’ll be able to show you by the end of 2018, but for now, here’s what I got.</p>
-<h2 id="data-import">Data Import</h2>
-<p>First, I imported my data. I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together.</p>
+<p>My two best friends and I challenged each other to list our top 100 favorite songs of all time at the end of 2017. This is by no means an easy task, but the three of us are just the music-obsessed folks to do it. Still, an all-too-obvious thought came to me as I went about logging my 100 tracks: <em>What an interesting dataset!</em> So, once I completed my list, I tried my hand at visualizing it.</p>
+<h1 id="data-import">Data Import</h1>
+<p>What did my spreadsheet look like? I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together.</p>
 <ol type="1">
-<li><p><strong>Genre</strong>: It’s kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, “emo post-hardcore” or “punk neofolk”? Unfortunately, I had to keep things relatively basic.</p></li>
+<li><p><strong>Genre</strong>: Kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, “emo post-hardcore” or “punk neofolk”? Unfortunately, I had to keep things relatively basic. “Rock” and “alternative” would have to do, as much as it pained me to do it.</p></li>
 <li><p><strong>Time of discovery</strong>: This is one I’m excited about. I thought about what point in my life I fell in love with each track: childhood, high school, college, or post-grad. Childhood is defined as literally everything before high school, because… well, weren’t we all children before high school?</p></li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h2 id="year-of-release">Year of Release</h2>
+<h1 id="year-of-release">Year of Release</h1>
 <p>The first thing I wanted to do was graph my favorite songs by the year they were released.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/release-1.png" width="960" /></p>
 </div>
 <p>A few interesting observations:</p>
 <ol type="1">
-<li><p>My favorite songs largely come from the last couple of decades, which makes sense.</p></li>
-<li><p>Apparently, 2016 was a crucial year for me – 11 of my favorite songs came from that year!</p></li>
-<li><p>Related to the last point: there is an upward trend in the graph, such that, by and large, the amount of favorite songs increases as year does. I think that’s because, especially over the past few years, I’ve tried to keep up with new music releases, so I’m just listening to more current music than classic.</p></li>
-<li><p>I almost completely skipped over the ’80s. There’s just a void for almost that entire decade, with one exception (“Please, Please, Please Let Me Get What I Want” by The Smiths). I think that’s hilarious. But also, maybe I should listen to more ’80s music.</p></li>
+<li><p>My favorite songs largely come from the last couple of decades, which makes sense. Over the past few years, I’ve tried to keep up with new music releases, so I’m just listening to more current music than classic.</p></li>
+<li><p>I almost completely skipped over the ’80s. There’s just a void for almost that entire decade, with one exception (<strong>“Please, Please, Please Let Me Get What I Want”</strong> by The Smiths). I think that’s hilarious. But also, maybe I should listen to more ’80s music.</p></li>
 <li><p>I’m going to guess that the entire clump of songs from the ’60s and ’70s is the influence of my classic rock phase in high school.</p></li>
 </ol>
-<h2 id="breaking-it-down-by-decade">Breaking It Down by Decade</h2>
+<h1 id="breaking-it-down-by-decade">Breaking It Down by Decade</h1>
 <p>Now that we got a macro view of the entire list by year of release, I thought it would be cool to break things down by decade. I can do that using the <code>cut</code> command. Since the earliest decade represented in my list is the ’60s, we’ll start there and make 10-year slices up until the present decade.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1007,223 +993,28 @@
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png" width="960" /></p>
 </div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>Next, I grouped my list by decade in a frequency table, to see once and for all what time periods my favorite music is coming from. I already knew how to make a table in R, but I had no idea how much you could customize its aesthetics until now. I found a nifty package called <code>kableExtra</code>, and let me tell you… it’s pretty <strong>extra</strong>. Pay close attention to that snazzy interactivity. The rows change color when you hover your mouse over them!</p>
-<div class="layout-chunk" data-layout="l-body">
-<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Decade
-</th>
-<th style="text-align:right;">
-Count
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
-60s
-</td>
-<td style="text-align:right;width: 8em; ">
-7
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
-70s
-</td>
-<td style="text-align:right;width: 8em; ">
-15
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
-80s
-</td>
-<td style="text-align:right;width: 8em; ">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
-90s
-</td>
-<td style="text-align:right;width: 8em; ">
-20
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
-00s
-</td>
-<td style="text-align:right;width: 8em; ">
-24
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
-10s
-</td>
-<td style="text-align:right;width: 8em; ">
-33
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>My tastes are definitely skewed to the contemporary, but the ’70s has some nice representation with 15 songs! Also, I’ve heard some people classify Nirvana as a classic rock band, so I guess even ’90s music can be considered “oldies.” ;)</p>
-<h2 id="genre">Genre</h2>
-<p>Next, I wanted to see my list broken down by genre. Like I mentioned before, the genres aren’t nearly as specific as they deserve to be, so take these results with a grain of salt. A genre like “rock,” for example, can be broken up so much further. And “alternative” … that could basically be anything.</p>
-<div class="layout-chunk" data-layout="l-body">
-<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-genre
-</th>
-<th style="text-align:right;">
-count
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
-Rock
-</td>
-<td style="text-align:right;width: 13em; ">
-37
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
-Alternative
-</td>
-<td style="text-align:right;width: 13em; ">
-28
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
-Punk
-</td>
-<td style="text-align:right;width: 13em; ">
-15
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
-Folk
-</td>
-<td style="text-align:right;width: 13em; ">
-8
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
-Pop
-</td>
-<td style="text-align:right;width: 13em; ">
-8
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
-Hip-Hop/Rap
-</td>
-<td style="text-align:right;width: 13em; ">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
-R&amp;B
-</td>
-<td style="text-align:right;width: 13em; ">
-2
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Talk about a “diverse” set of music… It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk.</p>
+<p>My tastes are definitely skewed to the contemporary, but the ’70s has some nice representation with 15 songs! Also, I’ve heard some people classify Nirvana as a classic rock band, so I guess even ’90s music can be considered “oldies.”</p>
+<h1 id="genre">Genre</h1>
+<p>Next, I wanted to see my list broken down by genre. Like I mentioned before, the genres aren’t nearly as specific as they deserve to be, so take these results with a grain of salt. A genre like “rock,” for example, can be broken up so much further. I mean, c’mon, are we talking post-hardcore or proto-metalcore here? `</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png" width="960" /></p>
 </div>
-<h2 id="period-of-discovery">Period of Discovery</h2>
-<p>Finally, I wanted to look at the distribution of songs from the period of time in my life I first discovered them. I looked specifically at childhood, high school, college, and post-grad. I’m really excited to see what this one looks like!</p>
+<p>Talk about a “diverse” set of music… It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk.</p>
+<h1 id="period-of-discovery">Period of Discovery</h1>
+<p>Finally, I wanted to look at the distribution of songs from the period of time in my life I first discovered them. I looked specifically at childhood, high school, college, and post-grad. I’m really excited — and terrified — to see what this one looks like!</p>
 <div class="layout-chunk" data-layout="l-body">
-<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-discovery
-</th>
-<th style="text-align:right;">
-count
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
-Childhood
-</td>
-<td style="text-align:right;width: 10em; ">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
-High School
-</td>
-<td style="text-align:right;width: 10em; ">
-28
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
-College
-</td>
-<td style="text-align:right;width: 10em; ">
-43
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
-Post-Grad
-</td>
-<td style="text-align:right;width: 10em; ">
-23
-</td>
-</tr>
-</tbody>
-</table>
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery-1.png" width="960" /></p>
 </div>
-<p>It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were… In thinking about it more, I came to realize how obvious this is. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me… I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music – and so much more – would not be the same without them.</p>
-<p>In sum, you’re damn right I discovered most of my picks in college – with the help of some good friends, of course.</p>
-<p>I’ll plot this out, too.</p>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery_plot-1.png" width="960" /></p>
-</div>
+<p>It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were… In thinking about it more, I came to realize how obvious this is. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me, I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music — and so much more — would not be the same without them.</p>
+<p>In sum, you’re damn right I discovered most of my picks in college, and with the help of some good friends.</p>
 <p>That’s revealing enough, but let’s see what the genre breakdown looks like for each of the four life phases. Was I really as fixated on classic rock in high school as I suspect I was? Have I broadened my horizons at all since?</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png" width="960" /></p>
 </div>
-<p>As this reveals, the answer to both of my hypothetical questions from above is a resounding <strong>YES</strong>. My favorite songs that I’ve carried with me from childhood and high school are almost entirely rock songs, but I have thankfully diversified my listening in the years since, albeit not by too much. I still feel that in some sense, a majority of the artists I listen to are straight white American rockstars. But that’s an issue for another day… or another dataset.</p>
-<h2 id="the-ranked-list">The Ranked List</h2>
+<p>As this reveals, the answer to both of my hypothetical questions from above is a resounding <strong>YES</strong>. Seriously, 18 entries on my list are rock songs I discovered in high school. I have thankfully diversified my listening in the years since, albeit not by too much. There is a spike in alternative entries from the college years.</p>
+<h1 id="the-ranked-list">The Ranked List</h1>
 <p>OK, you’ve been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs, as of 2017. There’s even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!</p>
-<p>I have a blast making these lists every year, but this may have been the best one yet. It was awesome to apply a new skill of mine to something so near and dear to my heart. It took a little while to get the bells and whistles right, but I feel pretty happy with what I came up with. I never saw myself as a coder before, but I was somehow able to muster something presentable together with only a few months of coding experience.</p>
-<p>If grad school has taught me anything so far, it’s that anticipated difficulty is no reason to shy away from something new, especially if it’s something you care enough about. I hope that in 2018, we all find the strength to persevere and do the things that intimidated us before.</p>
-<p>Cheeseballing aside, I’m excited for another great year ahead – to great music, better coding, and, of course, <em>so</em> much more to learn.</p>
-<p>Happy holidays, and have a great New Year! :)</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
+<p>I initially made this document at the end of 2017, after the first term of my PhD program. It’s amazing how much I’ve learned only a year later. I’d never seen myself as a coder or data scientist before grad school, but my program has taught me that anticipated difficulty is no reason to shy away from something new, especially if it’s something you care enough about.</p>
 <iframe src="https://open.spotify.com/embed/user/1231312236/playlist/1X0ICzJp8Y6Jt1EWDUP9ot" width="930" height="380" frameborder="10" allowtransparency="true">
 </iframe>
 <!--radix_placeholder_article_footer-->

@@ -1,0 +1,14 @@
+---
+title: "CV"
+description: |
+  Like me, a work in progress and updating constantly. 
+author:
+  - name: Andrew Edelblum
+    url: https://twitter.com/andrewedelblum
+output:
+  distill::distill_article:
+    self_contained: true
+---
+
+<embed src = "Edelblum, A. - CV.pdf" type = "application/pdf" width = "100%" height = "600px" />
+

@@ -1,0 +1,7 @@
+---
+title: "CV"
+description: |
+  Like me, a work in progress and updating constantly. 
+---
+
+<embed src = "Edelblum, A. - CV.pdf" type = "application/pdf" width = "100%" height = "600px" />
