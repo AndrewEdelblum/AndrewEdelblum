@@ -1,0 +1,223 @@
+---
+title: "My Favorite Songs of All Time"
+description: |
+    I'm a big music fan, so I ranked my favorite tracks
+author:
+  - name: Andrew Edelblum
+    url: https://twitter.com/andrewedelblum
+date: 03-13-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.width = 10)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(janitor)
+library(rio)
+library(knitr)
+library(plotly)
+theme_set(theme_bw())
+```
+
+Wow, another year gone! 
+
+For those who know and those who don't, two of my best friends and I have a tradition of ranking our 100 favorite songs of all time at the end of each year. It's an annual project we started our sophomore year of college, and something we do consistently to this day. As it stands now, 2017 marks our *fifth* year ranking our favorite songs!
+
+A common question I get about the ranking project is, "Do your favorite songs really change *that* much from year to year?"
+
+The answer to that, surprisingly, is yes. Every year brings new songs to my attention -- or introduces me to old classics I should've listened to years ago. Charting my favorite songs is an iterative process that, for whatever reason, feels new and exciting every December when I sit down to do it. It doesn't matter how much overlap there is between this year and the last. The way I see it, I'm logging my life through music. Even the tiniest change is worth capturing forever.
+
+## What Is This Document?
+
+What you see here is an HTML document brought to you by some coding in a program called RStudio.
+
+"So, where did that come from? You code now, bro?"
+
+Yes, kind of... But first, let's back up a bit.
+
+What started in 2013 as a basic list of my favorite songs quickly evolved over the years to become a more involved process. First, I started making PDF documents ranking my favorite tracks, complete with a favorite lyric from each pick. Then, I put Spotify playlists together. Heck, I even made YouTube videos describing the personal meaning behind why I chose each individual track to be part of my list. 
+
+But this year is different. I'm trying something totally brand-new with my top 100: I'm thinking of it as data.
+
+Just this past September, I started my first term of grad school at the University of Oregon. A lot of what I'm learning there is based around data science, and a large part of that journey has been spent using a program called RStudio, which involves... coding. It was difficult getting started, but now I try to use RStudio every opportunity I can. Why not use it to have some fun and get analytical with my favorite songs of all time? Taking this on is the perfect way to both review and celebrate what I've learned so far in grad school. Let's get started!
+
+Oh, and sidenote: I'm really not all that great with coding just yet, but just as I look to chart changes in my music taste over time, I'm also excited to see my coding skills improve from year to year. Lord knows what I'll be able to show you by the end of 2018, but for now, here's what I got.
+
+## Data Import
+
+First, I imported my data. I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together. 
+
+1. **Genre**: It's kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, "emo post-hardcore" or "punk neofolk"? Unfortunately, I had to keep things relatively basic.
+
+2. **Time of discovery**: This is one I'm excited about. I thought about what point in my life I fell in love with each track: childhood, high school, college, or post-grad. Childhood is defined as literally everything before high school, because... well, weren't we all children before high school? 
+
+```{r import}
+d <- import("./songs.csv", setclass = "tibble") %>% 
+  clean_names() %>% 
+  group_by(year) %>%
+  mutate(year_count = n())
+```
+
+## Year of Release
+
+The first thing I wanted to do was graph my favorite songs by the year they were released. 
+
+```{r release}
+ggplot(d, aes(x = year, y = year_count)) +
+  geom_bar(stat = "summary") +
+  scale_x_continuous(limits = c(1960, 2020),
+                     breaks = c(1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 
+                                2010, 2015, 2020)) +
+  labs(x = "Year", y = "Count") +
+  ggtitle("Favorite Songs by Year of Release")
+```
+
+A few interesting observations:
+
+1. My favorite songs largely come from the last couple of decades, which makes sense.
+
+2. Apparently, 2016 was a crucial year for me -- 11 of my favorite songs came from that year!
+
+3. Related to the last point: there is an upward trend in the graph, such that, by and large, the amount of favorite songs increases as year does. I think that's because, especially over the past few years, I've tried to keep up with new music releases, so I'm just listening to more current music than classic. 
+
+4. I almost completely skipped over the '80s. There's just a void for almost that entire decade, with one exception ("Please, Please, Please Let Me Get What I Want" by The Smiths). I think that's hilarious. But also, maybe I should listen to more '80s music.
+
+5. I'm going to guess that the entire clump of songs from the '60s and '70s is the influence of my classic rock phase in high school.
+
+## Breaking It Down by Decade
+
+Now that we got a macro view of the entire list by year of release, I thought it would be cool to break things down by decade. I can do that using the `cut` command. Since the earliest decade represented in my list is the '60s, we'll start there and make 10-year slices up until the present decade.
+
+```{r decade_cut}
+d$decade <- cut(d$year, breaks = c(1959, 1969, 1979, 1989, 1999, 2009, 2019), 
+                labels = c("60s", "70s", "80s", "90s", "00s", "10s"))
+```
+
+Here is what that first plot looks like when I color the columns differently for each decade represented.
+
+```{r release_decade}
+ggplot(d, aes(x = year, y = year_count, fill = decade)) +
+  geom_bar(stat = "summary") +
+  scale_x_continuous(limits = c(1960, 2020),
+                     breaks = c(1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 
+                                2010, 2015, 2020)) +
+  labs(x = "Year", y = "Count") +
+  ggtitle("Favorite Songs by Year of Release") +
+  theme(legend.position = "bottom")
+```
+
+```{r kable_extra}
+library(kableExtra)
+options(knitr.table.format = "html") 
+```
+
+Next, I grouped my list by decade in a frequency table, to see once and for all what time periods my favorite music is coming from. I already knew how to make a table in R, but I had no idea how much you could customize its aesthetics until now. I found a nifty package called `kableExtra`, and let me tell you... it's pretty **extra**. Pay close attention to that snazzy interactivity. The rows change color when you hover your mouse over them!
+
+```{r decade_table}
+table <- group_by(d, decade) %>% 
+  summarize(count = n())
+
+kable(table, col.names = c("Decade", "Count")) %>%
+  kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
+  column_spec(1, width = "8em", bold = T, border_right = T) %>%
+  column_spec(2, width = "8em")
+```
+
+My tastes are definitely skewed to the contemporary, but the '70s has some nice representation with 15 songs! Also, I've heard some people classify Nirvana as a classic rock band, so I guess even '90s music can be considered "oldies." ;)
+
+## Genre
+
+Next, I wanted to see my list broken down by genre. Like I mentioned before, the genres aren't nearly as specific as they deserve to be, so take these results with a grain of salt. A genre like "rock," for example, can be broken up so much further. And "alternative" ... that could basically be anything.
+
+```{r genre}
+table <- group_by(d, genre) %>% 
+  summarize(count = n()) %>% 
+  arrange(desc(count))
+
+kable(table) %>%
+  kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
+  column_spec(1, width = "13em", bold = T, border_right = T) %>%
+  column_spec(2, width = "13em")
+```
+
+Talk about a "diverse" set of music... It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk. 
+
+```{r genre_plot}
+d <- d %>% 
+  group_by(genre) %>% 
+  mutate(genre_freq = n()) %>%
+  arrange(genre_freq)
+
+ggplot(d, aes(x = reorder(genre, genre_freq))) +
+  geom_bar() +
+  labs(x = "Genre", y = "Count") +
+  ggtitle("Amount of Favorite Songs by Genre")
+```
+
+## Period of Discovery
+
+Finally, I wanted to look at the distribution of songs from the period of time in my life I first discovered them. I looked specifically at childhood, high school, college, and post-grad. I'm really excited to see what this one looks like!
+
+```{r discovery}
+d$discovery <- factor(d$discovery, levels = c("Childhood", "High School", "College", "Post-Grad"))
+
+table <- group_by(d, discovery) %>% 
+  summarize(count = n())
+
+kable(table) %>%
+  kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
+  column_spec(1, width = "10em", bold = T, border_right = T) %>%
+  column_spec(2, width = "10em")
+```
+
+It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were... In thinking about it more, I came to realize how obvious this is. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me... I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music -- and so much more -- would not be the same without them.
+
+In sum, you're damn right I discovered most of my picks in college -- with the help of some good friends, of course. 
+
+I'll plot this out, too.
+
+```{r discovery_plot}
+ggplot(d, aes(x = discovery)) +
+  geom_bar() +
+  labs(x = "Time of Discovery", y = "Count") +
+  ggtitle("Amount of Favorite Songs by Time of Discovery")
+```
+
+That's revealing enough, but let's see what the genre breakdown looks like for each of the four life phases. Was I really as fixated on classic rock in high school as I suspect I was? Have I broadened my horizons at all since?
+
+```{r discovery_plot2, fig.height = 7}
+ggplot(d, aes(x = genre, fill = genre)) +
+  geom_bar(position = "dodge") +
+  labs(x = "Genre", y = "Count") +
+  ggtitle("Amount of Favorite Songs by Genre by Time of Discovery") +
+  facet_wrap(~discovery) +
+  guides(fill = FALSE)
+```
+
+As this reveals, the answer to both of my hypothetical questions from above is a resounding **YES**. My favorite songs that I've carried with me from childhood and high school are almost entirely rock songs, but I have thankfully diversified my listening in the years since, albeit not by too much. I still feel that in some sense, a majority of the artists I listen to are straight white American rockstars. But that's an issue for another day... or another dataset.
+
+## The Ranked List
+
+OK, you've been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs, as of 2017. There's even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!
+
+I have a blast making these lists every year, but this may have been the best one yet. It was awesome to apply a new skill of mine to something so near and dear to my heart. It took a little while to get the bells and whistles right, but I feel pretty happy with what I came up with. I never saw myself as a coder before, but I was somehow able to muster something presentable together with only a few months of coding experience. 
+
+If grad school has taught me anything so far, it's that anticipated difficulty is no reason to shy away from something new, especially if it's something you care enough about. I hope that in 2018, we all find the strength to persevere and do the things that intimidated us before.
+
+Cheeseballing aside, I'm excited for another great year ahead -- to great music, better coding, and, of course, *so* much more to learn. 
+
+Happy holidays, and have a great New Year! :)
+
+```{r list}
+list <- d %>%
+  arrange(rank) %>% 
+  dplyr::select(song, artist, album, year, rank)
+
+list <- list[c("rank", "song", "artist", "album", "year")]
+```
+
+<iframe src="https://open.spotify.com/embed/user/1231312236/playlist/1X0ICzJp8Y6Jt1EWDUP9ot" width="930" height="380" frameborder="10" allowtransparency="true"></iframe>

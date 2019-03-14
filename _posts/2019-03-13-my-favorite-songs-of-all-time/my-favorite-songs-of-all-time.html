@@ -19,366 +19,39 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Andrew Edelblum: Untitled</title>
+  <title>My Favorite Songs of All Time</title>
+  
+  <meta property="description" itemprop="description" content="I&#39;m a big music fan, so I ranked my favorite tracks"/>
   
   
-  
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2019-03-13"/>
+  <meta property="article:created" itemprop="dateCreated" content="2019-03-13"/>
+  <meta name="article:author" content="Andrew Edelblum"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Andrew Edelblum: Untitled"/>
+  <meta property="og:title" content="My Favorite Songs of All Time"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="I&#39;m a big music fan, so I ranked my favorite tracks"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Andrew Edelblum"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Andrew Edelblum: Untitled"/>
+  <meta property="twitter:title" content="My Favorite Songs of All Time"/>
+  <meta property="twitter:description" content="I&#39;m a big music fan, so I ranked my favorite tracks"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{},"value":[]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["My Favorite Songs of All Time"]},{"type":"character","attributes":{},"value":["I'm a big music fan, so I ranked my favorite tracks\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Edelblum"]},{"type":"character","attributes":{},"value":["https://twitter.com/andrewedelblum"]}]}]},{"type":"character","attributes":{},"value":["03-13-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
-  <!--radix_placeholder_navigation_in_header-->
   
-  <script type="application/javascript">
-  
-    window.headroom_prevent_pin = false;
-  
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-  
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-  
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-  
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["my-favorite-songs-of-all-time_files/bowser-1.9.3/bowser.min.js","my-favorite-songs-of-all-time_files/distill-2.2.21/template.v2.js","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png","my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png","my-favorite-songs-of-all-time_files/figure-html5/release-1.png","my-favorite-songs-of-all-time_files/jquery-1.11.3/jquery.min.js","my-favorite-songs-of-all-time_files/kePrint-0.0.1/kePrint.js","my-favorite-songs-of-all-time_files/webcomponents-2.0.0/webcomponents.js","songs.csv"]}
   </script>
-  
-  <style type="text/css">
-  
-  /* Theme (user-documented overrideables for nav appearance) */
-  
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #455a64;
-    font-size: 15px;
-    font-weight: 300;
-  }
-  
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .distill-site-nav a:hover {
-    color: white;
-  }
-  
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-  
-  .distill-site-header {
-  
-  }
-  
-  .distill-site-footer {
-  
-  }
-  
-  
-  /* Site Header */
-  
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-  
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-  
-  
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-  
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-  
-  .distill-site-header .title {
-    font-size: 18px;
-  }
-  
-  .distill-site-header .logo {
-    padding: 0;
-  }
-  
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-  
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-  
-  
-  
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-  
-  
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-  
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-  
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-  
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-dropdown-active {
-    display: block;
-  }
-  
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-  
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-  
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative;}
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-  
-  /* Site Footer */
-  
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-  
-  /* Headroom */
-  
-  d-title {
-    padding-top: 6rem;
-  }
-  
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-  
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-  
-  .headroom--unpinned {
-    top: -100px;
-  }
-  
-  .headroom--pinned {
-    top: 0;
-  }
-  
-  </style>
-  
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
   
@@ -1254,6 +927,11 @@
   </script>
   
   <!--/radix_placeholder_distill-->
+  <script src="my-favorite-songs-of-all-time_files/kePrint-0.0.1/kePrint.js"></script>
+  <script src="my-favorite-songs-of-all-time_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="my-favorite-songs-of-all-time_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="my-favorite-songs-of-all-time_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="my-favorite-songs-of-all-time_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -1265,41 +943,289 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Untitled","authors":[]}
+{"title":"My Favorite Songs of All Time","description":"I'm a big music fan, so I ranked my favorite tracks","authors":[{"author":"Andrew Edelblum","authorURL":"https://twitter.com/andrewedelblum","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-03-13T00:00:00.000-07:00","citationText":"Edelblum, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">Andrew Edelblum</a>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="https://github.com/AndrewEdelblum/Class-Website-2">
-<i class="fab fa-github"></i>
-</a>
-<a href="https://goodflower.bandcamp.com/track/back-and-forth">
-<i class="fas fa-music"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>README.utf8.md</h1>
-
+<h1>My Favorite Songs of All Time</h1>
+<p>I’m a big music fan, so I ranked my favorite tracks</p>
 </div>
 
+<div class="d-byline">
+  Andrew Edelblum <a href="https://twitter.com/andrewedelblum" class="uri">https://twitter.com/andrewedelblum</a> 
+  
+<br/>03-13-2019
+</div>
 
 <div class="d-article">
-<p>Class-Website-2</p>
+<p>Wow, another year gone!</p>
+<p>For those who know and those who don’t, two of my best friends and I have a tradition of ranking our 100 favorite songs of all time at the end of each year. It’s an annual project we started our sophomore year of college, and something we do consistently to this day. As it stands now, 2017 marks our <em>fifth</em> year ranking our favorite songs!</p>
+<p>A common question I get about the ranking project is, “Do your favorite songs really change <em>that</em> much from year to year?”</p>
+<p>The answer to that, surprisingly, is yes. Every year brings new songs to my attention – or introduces me to old classics I should’ve listened to years ago. Charting my favorite songs is an iterative process that, for whatever reason, feels new and exciting every December when I sit down to do it. It doesn’t matter how much overlap there is between this year and the last. The way I see it, I’m logging my life through music. Even the tiniest change is worth capturing forever.</p>
+<h2 id="what-is-this-document">What Is This Document?</h2>
+<p>What you see here is an HTML document brought to you by some coding in a program called RStudio.</p>
+<p>“So, where did that come from? You code now, bro?”</p>
+<p>Yes, kind of… But first, let’s back up a bit.</p>
+<p>What started in 2013 as a basic list of my favorite songs quickly evolved over the years to become a more involved process. First, I started making PDF documents ranking my favorite tracks, complete with a favorite lyric from each pick. Then, I put Spotify playlists together. Heck, I even made YouTube videos describing the personal meaning behind why I chose each individual track to be part of my list.</p>
+<p>But this year is different. I’m trying something totally brand-new with my top 100: I’m thinking of it as data.</p>
+<p>Just this past September, I started my first term of grad school at the University of Oregon. A lot of what I’m learning there is based around data science, and a large part of that journey has been spent using a program called RStudio, which involves… coding. It was difficult getting started, but now I try to use RStudio every opportunity I can. Why not use it to have some fun and get analytical with my favorite songs of all time? Taking this on is the perfect way to both review and celebrate what I’ve learned so far in grad school. Let’s get started!</p>
+<p>Oh, and sidenote: I’m really not all that great with coding just yet, but just as I look to chart changes in my music taste over time, I’m also excited to see my coding skills improve from year to year. Lord knows what I’ll be able to show you by the end of 2018, but for now, here’s what I got.</p>
+<h2 id="data-import">Data Import</h2>
+<p>First, I imported my data. I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together.</p>
+<ol type="1">
+<li><p><strong>Genre</strong>: It’s kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, “emo post-hardcore” or “punk neofolk”? Unfortunately, I had to keep things relatively basic.</p></li>
+<li><p><strong>Time of discovery</strong>: This is one I’m excited about. I thought about what point in my life I fell in love with each track: childhood, high school, college, or post-grad. Childhood is defined as literally everything before high school, because… well, weren’t we all children before high school?</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="year-of-release">Year of Release</h2>
+<p>The first thing I wanted to do was graph my favorite songs by the year they were released.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/release-1.png" width="960" /></p>
+</div>
+<p>A few interesting observations:</p>
+<ol type="1">
+<li><p>My favorite songs largely come from the last couple of decades, which makes sense.</p></li>
+<li><p>Apparently, 2016 was a crucial year for me – 11 of my favorite songs came from that year!</p></li>
+<li><p>Related to the last point: there is an upward trend in the graph, such that, by and large, the amount of favorite songs increases as year does. I think that’s because, especially over the past few years, I’ve tried to keep up with new music releases, so I’m just listening to more current music than classic.</p></li>
+<li><p>I almost completely skipped over the ’80s. There’s just a void for almost that entire decade, with one exception (“Please, Please, Please Let Me Get What I Want” by The Smiths). I think that’s hilarious. But also, maybe I should listen to more ’80s music.</p></li>
+<li><p>I’m going to guess that the entire clump of songs from the ’60s and ’70s is the influence of my classic rock phase in high school.</p></li>
+</ol>
+<h2 id="breaking-it-down-by-decade">Breaking It Down by Decade</h2>
+<p>Now that we got a macro view of the entire list by year of release, I thought it would be cool to break things down by decade. I can do that using the <code>cut</code> command. Since the earliest decade represented in my list is the ’60s, we’ll start there and make 10-year slices up until the present decade.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Here is what that first plot looks like when I color the columns differently for each decade represented.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png" width="960" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Next, I grouped my list by decade in a frequency table, to see once and for all what time periods my favorite music is coming from. I already knew how to make a table in R, but I had no idea how much you could customize its aesthetics until now. I found a nifty package called <code>kableExtra</code>, and let me tell you… it’s pretty <strong>extra</strong>. Pay close attention to that snazzy interactivity. The rows change color when you hover your mouse over them!</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Decade
+</th>
+<th style="text-align:right;">
+Count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
+60s
+</td>
+<td style="text-align:right;width: 8em; ">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
+70s
+</td>
+<td style="text-align:right;width: 8em; ">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
+80s
+</td>
+<td style="text-align:right;width: 8em; ">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
+90s
+</td>
+<td style="text-align:right;width: 8em; ">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
+00s
+</td>
+<td style="text-align:right;width: 8em; ">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 8em; font-weight: bold;border-right:1px solid;">
+10s
+</td>
+<td style="text-align:right;width: 8em; ">
+33
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>My tastes are definitely skewed to the contemporary, but the ’70s has some nice representation with 15 songs! Also, I’ve heard some people classify Nirvana as a classic rock band, so I guess even ’90s music can be considered “oldies.” ;)</p>
+<h2 id="genre">Genre</h2>
+<p>Next, I wanted to see my list broken down by genre. Like I mentioned before, the genres aren’t nearly as specific as they deserve to be, so take these results with a grain of salt. A genre like “rock,” for example, can be broken up so much further. And “alternative” … that could basically be anything.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+genre
+</th>
+<th style="text-align:right;">
+count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
+Rock
+</td>
+<td style="text-align:right;width: 13em; ">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
+Alternative
+</td>
+<td style="text-align:right;width: 13em; ">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
+Punk
+</td>
+<td style="text-align:right;width: 13em; ">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
+Folk
+</td>
+<td style="text-align:right;width: 13em; ">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
+Pop
+</td>
+<td style="text-align:right;width: 13em; ">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
+Hip-Hop/Rap
+</td>
+<td style="text-align:right;width: 13em; ">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 13em; font-weight: bold;border-right:1px solid;">
+R&amp;B
+</td>
+<td style="text-align:right;width: 13em; ">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Talk about a “diverse” set of music… It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png" width="960" /></p>
+</div>
+<h2 id="period-of-discovery">Period of Discovery</h2>
+<p>Finally, I wanted to look at the distribution of songs from the period of time in my life I first discovered them. I looked specifically at childhood, high school, college, and post-grad. I’m really excited to see what this one looks like!</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+discovery
+</th>
+<th style="text-align:right;">
+count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
+Childhood
+</td>
+<td style="text-align:right;width: 10em; ">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
+High School
+</td>
+<td style="text-align:right;width: 10em; ">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
+College
+</td>
+<td style="text-align:right;width: 10em; ">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 10em; font-weight: bold;border-right:1px solid;">
+Post-Grad
+</td>
+<td style="text-align:right;width: 10em; ">
+23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were… In thinking about it more, I came to realize how obvious this is. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me… I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music – and so much more – would not be the same without them.</p>
+<p>In sum, you’re damn right I discovered most of my picks in college – with the help of some good friends, of course.</p>
+<p>I’ll plot this out, too.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery_plot-1.png" width="960" /></p>
+</div>
+<p>That’s revealing enough, but let’s see what the genre breakdown looks like for each of the four life phases. Was I really as fixated on classic rock in high school as I suspect I was? Have I broadened my horizons at all since?</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png" width="960" /></p>
+</div>
+<p>As this reveals, the answer to both of my hypothetical questions from above is a resounding <strong>YES</strong>. My favorite songs that I’ve carried with me from childhood and high school are almost entirely rock songs, but I have thankfully diversified my listening in the years since, albeit not by too much. I still feel that in some sense, a majority of the artists I listen to are straight white American rockstars. But that’s an issue for another day… or another dataset.</p>
+<h2 id="the-ranked-list">The Ranked List</h2>
+<p>OK, you’ve been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs, as of 2017. There’s even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!</p>
+<p>I have a blast making these lists every year, but this may have been the best one yet. It was awesome to apply a new skill of mine to something so near and dear to my heart. It took a little while to get the bells and whistles right, but I feel pretty happy with what I came up with. I never saw myself as a coder before, but I was somehow able to muster something presentable together with only a few months of coding experience.</p>
+<p>If grad school has taught me anything so far, it’s that anticipated difficulty is no reason to shy away from something new, especially if it’s something you care enough about. I hope that in 2018, we all find the strength to persevere and do the things that intimidated us before.</p>
+<p>Cheeseballing aside, I’m excited for another great year ahead – to great music, better coding, and, of course, <em>so</em> much more to learn.</p>
+<p>Happy holidays, and have a great New Year! :)</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<iframe src="https://open.spotify.com/embed/user/1231312236/playlist/1X0ICzJp8Y6Jt1EWDUP9ot" width="930" height="380" frameborder="10" allowtransparency="true">
+</iframe>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

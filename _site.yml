@@ -1,17 +1,15 @@
 name: "Class-Website-2"
-title: "The Big Boy Blog"
-description: |
-  The Big Boy Blog
+title: "Andrew Edelblum"
+description: "University of Oregon Ph.D. student, consumer psycholgist, Nintendo fan"
 output_dir: "docs"
 navbar:
-  left:
-    - text: "Stuff"
-      href: Final_Project.html
   right:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
-    - icon: fa fa-github
+    - icon: fab fa-github
       href: https://github.com/AndrewEdelblum/Class-Website-2
+    - icon: fas fa-music
+      href: https://goodflower.bandcamp.com/track/back-and-forth
 output: distill::distill_article

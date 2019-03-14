@@ -1,55 +1,32 @@
 [
   {
-    "path": "posts/2019-03-06-a-dang-cool-post/",
-    "title": "A dang cool post",
-    "description": "A short description of the post.",
+    "path": "posts/2019-03-13-my-favorite-songs-of-all-time/",
+    "title": "My Favorite Songs of All Time",
+    "description": "I'm a big music fan, so I ranked my favorite tracks",
     "author": [
       {
         "name": "Andrew Edelblum",
         "url": "https://twitter.com/andrewedelblum"
       }
     ],
-    "date": "2019-03-06",
-    "categories": [
-      "dataviz",
-      "class",
-      "cool stuff"
-    ],
-    "preview": "posts/2019-03-06-a-dang-cool-post/a-dang-cool-post_files/figure-html5/plot1-1.png",
-    "last_modified": "2019-03-06T11:04:27-08:00"
-  },
-  {
-    "path": "posts/2019-03-06-another-post-holy-moly/",
-    "title": "Another post, holy moly!",
-    "description": "A short description of the post.",
-    "author": [
-      {
-        "name": "Andrew Edelblum",
-        "url": "https://twitter.com/andrewedelblum"
-      }
-    ],
-    "date": "2019-03-06",
-    "categories": [
-      "dataviz",
-      "class",
-      "cool stuff"
-    ],
-    "preview": "posts/2019-03-06-another-post-holy-moly/another-post-holy-moly_files/figure-html5/plot1-1.png",
-    "last_modified": "2019-03-06T11:06:38-08:00"
-  },
-  {
-    "path": "posts/welcome/",
-    "title": "Welcome to The Big Boy Blog",
-    "description": "Welcome to our new blog, The Big Boy Blog. We hope you enjoy \nreading what we have to say!",
-    "author": [
-      {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
-      }
-    ],
-    "date": "2019-03-06",
+    "date": "2019-03-13",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-03-06T10:31:29-08:00"
+    "preview": "posts/2019-03-13-my-favorite-songs-of-all-time/my-favorite-songs-of-all-time_files/figure-html5/release-1.png",
+    "last_modified": "2019-03-13T12:42:31-07:00"
+  },
+  {
+    "path": "posts/2019-03-07-edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism/",
+    "title": "EDLD 610: Final Portfolio",
+    "description": "A critical event examination of the effect of brand activism on consumer activism.",
+    "author": [
+      {
+        "name": "Andrew Edelblum",
+        "url": "https://twitter.com/andrewedelblum"
+      }
+    ],
+    "date": "2019-03-07",
+    "categories": [],
+    "preview": "posts/2019-03-07-edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism/edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism_files/figure-html5/main_effect-1.png",
+    "last_modified": "2019-03-13T11:54:13-07:00"
   }
 ]
