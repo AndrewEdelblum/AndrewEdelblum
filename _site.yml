@@ -4,12 +4,12 @@ description: "University of Oregon Ph.D. student, consumer psycholgist, Nintendo
 output_dir: "docs"
 navbar:
   right:
-    - text: "Home"
-      href: index.html
     - text: "About"
       href: about.html
+    - text: "Posts"
+      href: index.html
     - text: "CV"
-    - href: cv.html
+      href: CV.html
     - icon: fab fa-github
       href: https://github.com/AndrewEdelblum/Class-Website-2
     - icon: fas fa-music
