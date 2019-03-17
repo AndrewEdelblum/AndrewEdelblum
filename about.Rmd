@@ -1,11 +1,30 @@
 ---
 title: "Who am I?"
 description: |
-  The proverbial question of the ages
+  The proverbial question of the ages.
 ---
 
-<p style = "text-align:center;"><img src = "me.png" alt = "Logo" style = "width: 200px;"></p>
+```{r list, include = FALSE}
+projects <- c("The influential impact of brand activism on subsequent consumer activism", "A conceptualization and examination of reactive disposal in the marketplace", "How a firm's adoption of LGBTQ+-inclusive policies affects stock performance", "Factors that drive the believability of 'clickbait' persuasive appeals")
 
-Thank you for visiting my website!
+d <- data.frame(projects)
 
-My name is Andrew Edelblum! I am a marketing Ph.D. student at the University of Oregon and the social media manager for the *Journal of Consumer Research*. I'm interested in consumer identity, activism, new media platforms, and all things Nintendo.
+library(knitr)
+library(kableExtra)
+options(knitr.table.format = "html")
+```
+
+<p style = "text-align:center;"><img src = "real_me.jpg" alt = "Logo" style = "width: 600px;"></p>
+
+My name is **Andrew Edelblum**! 
+
+I am a marketing Ph.D. student at the [University of Oregon](https://business.uoregon.edu/faculty/andrew-edelblum) and the social media manager for the [*Journal of Consumer Research*](http://www.ejcr.org/). I'm interested in consumer identity, activism, new media platforms, and all things Nintendo.
+
+My current research projects involve:
+
+```{r table}
+kable(d, col.names = "Project") %>%
+  kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
+```
+
+Click [here](index.html) to check out some of my projects, datasets, and visualizations in greater detail!

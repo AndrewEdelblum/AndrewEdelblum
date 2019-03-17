@@ -33,7 +33,7 @@ My two best friends and I challenged each other to list our top 100 favorite son
 
 <center>My best friends and I in 2014 enjoying some Italian ice before — you guessed it! — a concert. We were such babies! </center>
 
-# Data Import
+## Data Import
 
 What did my spreadsheet look like? I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together. 
 
@@ -46,7 +46,7 @@ d <- import("./songs.csv", setclass = "tibble") %>%
   clean_names()
 ```
 
-# Year of Release
+## Year of Release
 
 The first thing I wanted to do was graph my favorite songs by the year they were released. 
 
@@ -74,7 +74,7 @@ A few interesting observations:
 
 3. I'm going to guess that the entire clump of songs from the '60s and '70s is the influence of my classic rock phase in high school.
 
-# Breaking It Down by Decade
+## Breaking It Down by Decade
 
 Now that we got a macro view of the entire list by year of release, I thought it would be cool to break things down by decade. I can do that using the `cut` command. Since the earliest decade represented in my list is the '60s, we'll start there and make 10-year slices up until the present decade.
 
@@ -107,7 +107,7 @@ ggplot(d, aes(x = decade, y = decade_count)) +
 
 My tastes are definitely skewed to the contemporary, but the '70s has some nice representation with 15 songs! Also, I've heard some people classify Nirvana as a classic rock band, so I guess even '90s music can be considered "oldies." 
 
-# Genre
+## Genre
 
 Next, I wanted to see my list broken down by genre. Like I mentioned before, the genres aren't nearly as specific as they deserve to be, so take these results with a grain of salt. A genre like "rock," for example, can be broken up so much further. I mean, c'mon, are we talking post-hardcore or proto-metalcore here? `
 
@@ -134,7 +134,7 @@ ggplot(d, aes(x = reorder(genre, genre_freq), y = genre_freq)) +
 
 Talk about a "diverse" set of music... It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk. 
 
-# Period of Discovery
+## Period of Discovery
 
 Finally, I wanted to look at the distribution of songs from the period of time in my life I first discovered them. I looked specifically at childhood, high school, college, and post-grad. I'm really excited — and terrified — to see what this one looks like!
 
@@ -189,7 +189,7 @@ ggplot(d, aes(x = discovery, y = genre, fill = specific)) +
 
 As this reveals, the answer to both of my hypothetical questions from above is a resounding **YES**. Seriously, 18 entries on my list are rock songs I discovered in high school. I have thankfully diversified my listening in the years since, albeit not by too much. There is a spike in alternative entries from the college years.
 
-# The Ranked List
+## The Ranked List
 
 OK, you've been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs, as of 2017. There's even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!
 

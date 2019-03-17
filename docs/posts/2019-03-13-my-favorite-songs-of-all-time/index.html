@@ -1294,6 +1294,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <a href="../../about.html">About</a>
 <a href="../../index.html">Posts</a>
 <a href="../../CV.html">CV</a>
+<a href="https://twitter.com/AndrewEdelblum?lang=en">
+<i class="fab fa-twitter"></i>
+</a>
 <a href="https://github.com/AndrewEdelblum/Class-Website-2">
 <i class="fab fa-github"></i>
 </a>
@@ -1327,7 +1330,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <center>
 My best friends and I in 2014 enjoying some Italian ice before — you guessed it! — a concert. We were such babies!
 </center>
-<h1 id="data-import">Data Import</h1>
+<h2 id="data-import">Data Import</h2>
 <p>What did my spreadsheet look like? I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together.</p>
 <ol type="1">
 <li><p><strong>Genre</strong>: Kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, “emo post-hardcore” or “punk neofolk”? Unfortunately, I had to keep things relatively basic. “Rock” and “alternative” would have to do, as much as it pained me to do it.</p></li>
@@ -1338,7 +1341,7 @@ My best friends and I in 2014 enjoying some Italian ice before — you guessed i
 d &lt;- import(&quot;./songs.csv&quot;, setclass = &quot;tibble&quot;) %&gt;% 
   clean_names()</code></pre>
 </div>
-<h1 id="year-of-release">Year of Release</h1>
+<h2 id="year-of-release">Year of Release</h2>
 <p>The first thing I wanted to do was graph my favorite songs by the year they were released.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1363,7 +1366,7 @@ ggplot(d, aes(x = year)) +
 <li><p>I almost completely skipped over the ’80s. There’s just a void for almost that entire decade, with one exception (<strong>“Please, Please, Please Let Me Get What I Want”</strong> by The Smiths). I think that’s hilarious. But also, maybe I should listen to more ’80s music.</p></li>
 <li><p>I’m going to guess that the entire clump of songs from the ’60s and ’70s is the influence of my classic rock phase in high school.</p></li>
 </ol>
-<h1 id="breaking-it-down-by-decade">Breaking It Down by Decade</h1>
+<h2 id="breaking-it-down-by-decade">Breaking It Down by Decade</h2>
 <p>Now that we got a macro view of the entire list by year of release, I thought it would be cool to break things down by decade. I can do that using the <code>cut</code> command. Since the earliest decade represented in my list is the ’60s, we’ll start there and make 10-year slices up until the present decade.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1393,7 +1396,7 @@ ggplot(d, aes(x = decade, y = decade_count)) +
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png" width="960" /></p>
 </div>
 <p>My tastes are definitely skewed to the contemporary, but the ’70s has some nice representation with 15 songs! Also, I’ve heard some people classify Nirvana as a classic rock band, so I guess even ’90s music can be considered “oldies.”</p>
-<h1 id="genre">Genre</h1>
+<h2 id="genre">Genre</h2>
 <p>Next, I wanted to see my list broken down by genre. Like I mentioned before, the genres aren’t nearly as specific as they deserve to be, so take these results with a grain of salt. A genre like “rock,” for example, can be broken up so much further. I mean, c’mon, are we talking post-hardcore or proto-metalcore here? `</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1418,7 +1421,7 @@ ggplot(d, aes(x = reorder(genre, genre_freq), y = genre_freq)) +
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png" width="960" /></p>
 </div>
 <p>Talk about a “diverse” set of music… It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk.</p>
-<h1 id="period-of-discovery">Period of Discovery</h1>
+<h2 id="period-of-discovery">Period of Discovery</h2>
 <p>Finally, I wanted to look at the distribution of songs from the period of time in my life I first discovered them. I looked specifically at childhood, high school, college, and post-grad. I’m really excited — and terrified — to see what this one looks like!</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1469,7 +1472,7 @@ ggplot(d, aes(x = discovery, y = genre, fill = specific)) +
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png" width="960" /></p>
 </div>
 <p>As this reveals, the answer to both of my hypothetical questions from above is a resounding <strong>YES</strong>. Seriously, 18 entries on my list are rock songs I discovered in high school. I have thankfully diversified my listening in the years since, albeit not by too much. There is a spike in alternative entries from the college years.</p>
-<h1 id="the-ranked-list">The Ranked List</h1>
+<h2 id="the-ranked-list">The Ranked List</h2>
 <p>OK, you’ve been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs, as of 2017. There’s even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!</p>
 <p>I initially made this document at the end of 2017, after the first term of my PhD program. It’s amazing how much I’ve learned only a year later. I’d never seen myself as a coder or data scientist before grad school, but my program has taught me that anticipated difficulty is no reason to shy away from something new, especially if it’s something you care enough about.</p>
 <iframe src="https://open.spotify.com/embed/user/1231312236/playlist/1X0ICzJp8Y6Jt1EWDUP9ot" width="930" height="380" frameborder="10" allowtransparency="true">
