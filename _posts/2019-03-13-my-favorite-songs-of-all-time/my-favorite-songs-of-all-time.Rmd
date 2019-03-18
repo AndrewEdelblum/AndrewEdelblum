@@ -27,19 +27,21 @@ options(knitr.table.format = "html")
 library(plotly)
 ```
 
-My two best friends and I challenged each other to list our top 100 favorite songs of all time at the end of 2017. This is by no means an easy task, but the three of us are just the music-obsessed folks to do it. Still, an all-too-obvious thought came to me as I went about logging my 100 tracks: *What an interesting dataset!* So, once I completed my list, I tried my hand at visualizing it. 
+My two best friends and I challenged each other to list our top 100 favorite songs of all time at the end of 2017. This is by no means an easy task, but the three of us are just the music-obsessed folks to do it. Still, an all-too-obvious thought came to me as I went about logging my 100 tracks: *What an interesting dataset!* So, once I completed my rankings, I tried my hand at visualizing it. 
 
-<p style = "text-align:center;"><img src = "friends.jpg" alt = "Logo" style = "width: 450px;"></p>
+<p style = "text-align:center;"><img src = "friends.jpg" alt = "Logo"></p>
 
 <center>My best friends and I in 2014 enjoying some Italian ice before — you guessed it! — a concert. We were such babies! </center>
 
-## Data Import
+## Dataset Creation and Import
 
-What did my spreadsheet look like? I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together. 
+First thing's first: I had to make a spreadseet. I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together. 
 
 1. **Genre**: Kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, "emo post-hardcore" or "punk neofolk"? Unfortunately, I had to keep things relatively basic. "Rock" and "alternative" would have to do, as much as it pained me to do it.
 
 2. **Time of discovery**: This is one I'm excited about. I thought about what point in my life I fell in love with each track: childhood, high school, college, or post-grad. Childhood is defined as literally everything before high school, because... well, weren't we all children before high school? 
+
+<p style = "text-align:center;"><img src = "spreadsheet.png" alt = "Logo" ></p>
 
 ```{r import}
 d <- import("./songs.csv", setclass = "tibble") %>% 
