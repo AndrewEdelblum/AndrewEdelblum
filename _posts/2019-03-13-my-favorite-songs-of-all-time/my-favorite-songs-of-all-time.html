@@ -973,12 +973,15 @@ My best friends and I in 2014 enjoying some Italian ice before — you guessed i
 <h2 id="dataset-creation-and-import">Dataset Creation and Import</h2>
 <p>First thing’s first: I had to make a spreadseet. I included the song, artist, album, and year of release right away, but I came up with a couple other ideas as I put my spreadsheet together.</p>
 <ol type="1">
-<li><p><strong>Genre</strong>: Kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, “emo post-hardcore” or “punk neofolk”? Unfortunately, I had to keep things relatively basic. “Rock” and “alternative” would have to do, as much as it pained me to do it.</p></li>
+<li><p><strong>Genre</strong>: Kind of an obvious one, but I figured it could be interesting. The only thing is, I had to be pretty non-specific when it came to assigning each track a genre. How could I make any reasonable insights from my list if I narrowed in on genre to the point of, say, “emo post-hardcore” or “punk neofolk”? As the great scholars say, granularity often comes at the cost of parsimony. Unfortunately, I had to keep things relatively basic. “Rock” and “alternative” would have to do, as much as it pained me to do it.</p></li>
 <li><p><strong>Time of discovery</strong>: This is one I’m excited about. I thought about what point in my life I fell in love with each track: childhood, high school, college, or post-grad. Childhood is defined as literally everything before high school, because… well, weren’t we all children before high school?</p></li>
 </ol>
 <p style="text-align:center;">
 <img src = "spreadsheet.png" alt = "Logo" >
 </p>
+<center>
+A lil’ snippet of the spreadsheet I assembled.
+</center>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 d &lt;- import(&quot;./songs.csv&quot;, setclass = &quot;tibble&quot;) %&gt;% 
@@ -1022,7 +1025,7 @@ d &lt;- d %&gt;%
   group_by(decade) %&gt;% 
   mutate(decade_count = n())</code></pre>
 </div>
-<p>Here is what that first plot looks like when I color the columns differently for each decade represented.</p>
+<p>Here is my list broken down by decade.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = decade, y = decade_count)) +
@@ -1041,7 +1044,7 @@ ggplot(d, aes(x = decade, y = decade_count)) +
         axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png" width="960" /></p>
 </div>
-<p>My tastes are definitely skewed to the contemporary, but the ’70s has some nice representation with 15 songs! Also, I’ve heard some people classify Nirvana as a classic rock band, so I guess even ’90s music can be considered “oldies.”</p>
+<p>My tastes are definitely skewed to the contemporary, but the ’70s has some nice representation with 15 songs! Also, I’ve heard some people classify Nirvana as a classic rock band, so I guess even ’90s music can be considered “oldies.” Ha!</p>
 <h2 id="genre">Genre</h2>
 <p>Next, I wanted to see my list broken down by genre. Like I mentioned before, the genres aren’t nearly as specific as they deserve to be, so take these results with a grain of salt. A genre like “rock,” for example, can be broken up so much further. I mean, c’mon, are we talking post-hardcore or proto-metalcore here? `</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1093,10 +1096,11 @@ ggplot(d, aes(x = discovery, y = disc_freq)) +
         axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery-1.png" width="960" /></p>
 </div>
-<p>It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were… In thinking about it more, I came to realize how obvious this is. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me, I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music — and so much more — would not be the same without them.</p>
+<p>It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were…</p>
+<p>Thinking about it more, this is pretty obvious. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me, I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music — and so much more — would not be the same without them.</p>
 <p>In sum, you’re damn right I discovered most of my picks in college, and with the help of some good friends.</p>
 <h3 id="genre-of-favorite-songs-by-period-of-discovery">Genre of Favorite Songs by Period of Discovery</h3>
-<p>That’s revealing enough, but let’s see what the genre breakdown looks like for each of the four life phases. Was I really as fixated on classic rock in high school as I suspect I was? Have I broadened my horizons at all since?</p>
+<p>That’s revealing enough, but let’s see what the genre breakdown looks like for each of my four periods of discovery. Was I really as fixated on classic rock in high school as I suspect I was? Have I broadened my horizons at all since?</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 d &lt;- d %&gt;% 
@@ -1118,12 +1122,14 @@ ggplot(d, aes(x = discovery, y = genre, fill = specific)) +
         axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png" width="960" /></p>
 </div>
-<p>As this reveals, the answer to both of my hypothetical questions from above is a resounding <strong>YES</strong>. Seriously, 18 entries on my list are rock songs I discovered in high school. I have thankfully diversified my listening in the years since, albeit not by too much. There is a spike in alternative entries from the college years.</p>
+<p>As this reveals, the answer to both of my hypothetical questions from above is a resounding <strong>YES</strong>. Seriously, 18 entries on my list are rock songs I discovered in high school. I have thankfully diversified my listening in the years since, albeit not by too much. There is a spike in alternative entries from the college years, for example.</p>
 <h2 id="heat-maps">Heat Maps</h2>
-<p>All this talk about my list, and I haven’t even explored the rankings themselves. What musical decades tend to be at the top of my list? At what stage of life did I first discover my absolute favorite tracks?</p>
+<p>All this talk about my list, and I haven’t even explored the rankings themselves. What musical decades tend to be represented most at the top of my list? At what stage of life did I first discover my absolute favorite tracks?</p>
 <p>While actually coding the following plots took only a matter of minutes, I’d been thinking of how to do it for weeks. It was like an insight problem: the solution came to me in a flash one Sunday afternoon.</p>
-<p>Essentially, I created two new variables in my spreadsheet: <em>row</em> and <em>position</em>. What these codes did in tandem was supply R a set of “coordinates” to place an individual track as its own square on a 10x10 grid. For example, the #1 song should appear as a single square in the top left-hand corner of the plot, followed by the #2 track immediately to its right. So, the plot reads like a book: Tracks #1-10 will go in decreasing order from left to right on the top-most row. Then, the second group of 10 tracks (#11-20) will appear in decreasing order from left to right on the row underneath. So on and so forth…</p>
-<h3 id="heat-map-i">Heat Map I</h3>
+<p>Essentially, I created two new variables in my spreadsheet: <em>row</em> and <em>position</em>. What these codes did in tandem was supply R a set of “coordinates” to place an individual track as its own square on a 10x10 grid. For example, the #1 song should appear as a single square in the top left-hand corner of the plot, followed by the #2 track immediately to its right.</p>
+<p>The plot reads like a book: Tracks #1-10 go in decreasing order from left to right on the top-most row. Then, the second group of 10 tracks (#11-20) appears in decreasing order from left to right on the row underneath. So on and so forth…</p>
+<p>First, let’s look at where on my list the different musical decades tend to be represented.</p>
+<h3 id="rankings-colored-by-decade-of-release">Rankings Colored by Decade of Release</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = position, y = row, fill = decade)) +
@@ -1145,9 +1151,9 @@ ggplot(d, aes(x = position, y = row, fill = decade)) +
         axis.title = element_blank())</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/heat_map_1-1.png" width="960" /></p>
 </div>
-<p>Super cool! It’s especially interesting to me that my ’60s and ’70s favorites tend to be closer to the top of my list. Over one-third of my top 30 tracks were released in those decades! As we established above, I was in the midst of somewhat of a classic rock obsession in high school.</p>
-<p>Perhaps it’s the case that songs I discovered earlier in life are closer to the heart, then. Let’s find out by reproducing the same visualization, but with tracks colored by period of discovery instead of decade of release.</p>
-<h3 id="heat-map-ii">Heat Map II</h3>
+<p>Super cool! It’s especially interesting to me that of my ’60s and ’70s favorites on this list, a majority of them tend to be closer to the top of it. Over one-third of my top 30 tracks were released in those decades! As established above, I was in the midst of somewhat of a classic rock obsession in high school.</p>
+<p>If that’s the case, perhaps songs I discovered earlier in life are just closer to the heart. In other words, it’s because I listened to those ’60s and ’70s songs earlier in life that they find their way so high on my list. Let’s find out by reproducing the same visualization as we have here, but with tracks colored by period of discovery instead of decade of release.</p>
+<h3 id="rankings-colored-by-period-of-discovery">Rankings Colored by Period of Discovery</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = position, y = row, fill = discovery)) +
@@ -1169,9 +1175,9 @@ ggplot(d, aes(x = position, y = row, fill = discovery)) +
         axis.title = element_blank())</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/heat_map_2-1.png" width="960" /></p>
 </div>
-<p>Sure enough, exactly half of my top 30 songs came from childhood and high school. Not only that, but six of my top 10 tracks came from those early periods of discovery!</p>
+<p>Sure enough, exactly half of my top 30 songs came from childhood and high school. Not only that, but six of my top 10 tracks came from those early periods of discovery! The influence of college can’t be overlooked, though. But those tracks are mixed pretty evenly all throughout the top 100.</p>
 <h2 id="the-ranked-list">The Ranked List</h2>
-<p>OK, you’ve been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs, as of 2017. There’s even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!</p>
+<p>OK, you’ve been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs of all time, as of 2017. There’s even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!</p>
 <p>I initially made this document at the end of 2017, after the first term of my PhD program. It’s amazing how much I’ve learned only a year later. I’d never seen myself as a coder or data scientist before grad school, but my program has taught me that anticipated difficulty is no reason to shy away from something new, especially if it’s something you care enough about.</p>
 <iframe src="https://open.spotify.com/embed/user/1231312236/playlist/1X0ICzJp8Y6Jt1EWDUP9ot" width="930" height="380" frameborder="10" allowtransparency="true">
 </iframe>

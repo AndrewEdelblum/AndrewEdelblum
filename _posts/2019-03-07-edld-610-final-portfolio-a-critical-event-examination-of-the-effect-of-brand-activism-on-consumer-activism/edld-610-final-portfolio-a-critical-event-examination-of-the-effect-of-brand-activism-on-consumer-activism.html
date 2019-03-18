@@ -973,7 +973,7 @@
 <p>Nike’s choice of Kaepernick was activist in nature; it signaled Nike’s support for civil rights and those who advocate for them. We reasoned that only some consumers would be aware of this breaking news and therefore tested whether knowledge of Nike’s activism increased high (vs. low) SBC consumers’ donations to a civil rights group (Black Lives Matter). We recorded donations first, such that no other study-related details could influence the focal effects. There is no identifiable information in my data sources.</p>
 <p><strong>Note:</strong> I ran this study on the same day as Nike first unveiled their 30th anniversary campaign. This was done to capitalize on a natural and ecologically valid instance of brand activism in popular culture, as well as draw comparisons between those who were and were not aware of it. If I waited too long, there would not be a baseline “no awareness” group from which to draw comparisons.</p>
 <h2 id="data-import">Data Import</h2>
-<p>We’ll begin by importing the data. There are a few continuous variables we’ll have to calculate. First, because SBC is derived from a seven-item scale, we’ll add each subject’s values for these items and average them. We’ll do the same for their self-reported attitude toward the focal cause (i.e., Black Lives Matter).</p>
+<p>We’ll begin by importing the data. There are a few continuous variables we’ll have to calculate. First, because SBC is derived from a seven-item scale, we’ll add each subject’s values for these items and average them. We’ll do the same for their self-reported attitude toward the focal cause (i.e., Black Lives Matter). Finally, we’ll recode activism awareness, such that 1 = “Yes,” 0 = “No.” This will make interpretations of the coming visualizations much easier and digestible.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 d &lt;- import(&quot;./d.csv&quot;, setclass = &quot;tibble&quot;) %&gt;% 
@@ -985,10 +985,10 @@ d &lt;- import(&quot;./d.csv&quot;, setclass = &quot;tibble&quot;) %&gt;%
          know2 = recode(know2, &quot;1&quot; = &quot;Yes&quot;, &quot;0&quot; = &quot;No&quot;))</code></pre>
 </div>
 <h2 id="main-effect-of-sbc-on-donations">Main Effect of SBC on Donations</h2>
-<p>Time to finally put our data visualization skills to the test. First, I would like to see that the hypothesized main effect of self-brand connection (SBC) on donations came through. This should demonstrate that that the more connected an individual consumer feels to an activist brand, the more they will want to donate to a related activist cause (i.e., Black Lives Matter).</p>
+<p>First, I would like to see that the hypothesized main effect of self-brand connection (SBC) on donations came through. This should demonstrate that that the more connected an individual consumer feels to an activist brand, the more they will want to donate to a related activist cause (i.e., Black Lives Matter).</p>
 <h3 id="version-1">Version 1</h3>
 <p>I started by plotting the regression line via <code>geom_smooth</code>.</p>
-<p><strong>Note</strong>: I don’t show the many versions of my plot titles and labels here, since that would take a <em>long</em>, long while. However, it is worth noting that I went through many trial-and-error iterations to find the right length, size, page orientation, and styling for them. I ultimately settled on a consistent look, which is included in the <code>theme</code> argument for all plots in this document.</p>
+<p><strong>Note</strong>: I don’t show the many versions of my plot title and label aesthetics here, since that would take a <em>long</em>, long while. However, it is worth noting that I went through many trial-and-error iterations to find the right length, size, and styling for them. I ultimately settled on a consistent look, which is included in the <code>theme</code> argument for all plots in this document.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = sbcavg, y = donate_3)) +
@@ -1006,8 +1006,8 @@ ggplot(d, aes(x = sbcavg, y = donate_3)) +
 <p><img src="edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism_files/figure-html5/main_effect_1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <h3 id="version-2">Version 2</h3>
-<p>While the above plot communicates some information, it doesn’t include uncertainty. As such, I removed <code>se = FALSE</code> from my code, i.e., in order to visualize the standard error of my estimate. Also, for the sake of clarity and parsimony, my theory assumes a positive <em>linear</em> relationship between SBC and donations. As such, I added a <code>method = &quot;lm&quot;</code> argument to my <code>geom_smooth</code> to show the linear trend.</p>
-<p>Finally, on top of the regression line, I plotted the raw data. Since participants were given only a range of $0-10 to donate to Black Lives Matter, you will notice some binning in the data — there is data clumping at certain dollar intervals.</p>
+<p>While the above plot communicates some information, it doesn’t include uncertainty. As such, I removed <code>se = FALSE</code> from my code in order to visualize the standard error of my estimate. Also, for the sake of clarity and parsimony, my theory assumes a positive <em>linear</em> relationship between SBC and donations. As such, I added a <code>method = &quot;lm&quot;</code> argument to my <code>geom_smooth</code> to show the linear trend.</p>
+<p>Finally, on top of the regression line, I plotted the raw data. Since participants were given only a range of $0-10 to donate to Black Lives Matter, you will notice some binning at certain dollar intervals.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = sbcavg, y = donate_3)) +
@@ -1029,7 +1029,7 @@ ggplot(d, aes(x = sbcavg, y = donate_3)) +
 <h2 id="sbc-by-activism-awareness-interaction-on-donations">SBC by Activism Awareness Interaction on Donations</h2>
 <p>Now for the real deal. My guiding theoretical framework suggests that consumers will align their activism with that of a connected <em>when</em> that brand demonstrates activism behavior. As such, it is integral to see how consumers decided to donate when they did versus did not know of Nike’s 30th anniversary campaign with Colin Kaepernick. Running this study on launch day of the campaign allowed for me to draw comparisons between these two groups before the campaign was covered on the evening news.</p>
 <h2 id="knowledge-of-nikes-activism">Knowledge of Nike’s Activism</h2>
-<p>I wanted to see how many participants knew vs. did not know of Nike’s activism. In the study, I asked participants to write about any recent news they heard about Nike lately. I coded knowledge as “1” when participants either mentioned Colin Kaepernick by name or said something about the controversy surrounding Nike’s new spokesperson. Participants were coded as “0” otherwise.</p>
+<p>I wanted to see how many participants were aware vs. unaware of Nike’s activism. In the study, I asked participants to write about any recent news they heard about Nike lately. I coded knowledge as “1” when participants either mentioned Colin Kaepernick by name or said something about the controversy surrounding Nike’s new spokesperson. Participants were coded as “0” otherwise.</p>
 <p>Here is the table of results.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1073,39 +1073,16 @@ Yes
 </tbody>
 </table>
 </div>
-<p>A roughly equal number of participants knew vs. did not know about Nike’s activism. Awesome!</p>
+<p>A roughly equal number of participants were awareness vs. unaware of Nike’s activism. Awesome!</p>
 <p>Now, let’s see whether knowledge of activism interacts with SBC.</p>
 <h2 id="johnson-neyman-plot">Johnson-Neyman Plot</h2>
-<p>This next visualization took a bit of work to figure out. I’d like to see if awareness of Nike’s Kaepernick campaign interacted with SBC to affect donations to Black Lives Matter. Given my theorizing, high-SBC consumers should increase their donations most when they know of Nike’s activism. Consumers achieve self-coherence when they align their behavior with that of an self-relevant associative in-group. Can brand activism influence consumer activism?</p>
+<p>This next visualization took a bit of work to figure out. I’d like to see if awareness of Nike’s Kaepernick campaign interacted with SBC to affect donations to Black Lives Matter. Given my theorizing, high-SBC consumers should increase their donations most when they are <em>aware</em> of Nike’s activism. Consumers achieve self-coherence when they align their behavior with that of an self-relevant associative in-group. Can brand activism influence consumer activism?</p>
 <h3 id="version-1-1">Version 1</h3>
 <p>I started with two trend lines to visualize the effect of SBC on donations at both levels of activism awareness (i.e., yes vs. no). I again applied <code>method = lm</code> to account for the linear trend in my theoretical model.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 d$know2 &lt;- factor(d$know2, levels = c(&quot;Yes&quot;, &quot;No&quot;))
 
-model &lt;- lm(donate_3 ~ sbcavg * know2, data = d)
-summary(model)</code></pre>
-<pre><code>
-Call:
-lm(formula = donate_3 ~ sbcavg * know2, data = d)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--4.9307 -2.1808 -0.8745  1.7536  8.0145 
-
-Coefficients:
-               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     0.81258    0.39840   2.040   0.0423 *  
-sbcavg          0.04561    0.00810   5.631 4.08e-08 ***
-know2No         1.22486    0.57056   2.147   0.0326 *  
-sbcavg:know2No -0.02677    0.01155  -2.318   0.0211 *  
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 2.991 on 304 degrees of freedom
-Multiple R-squared:  0.1093,    Adjusted R-squared:  0.1005 
-F-statistic: 12.43 on 3 and 304 DF,  p-value: 1.084e-07</code></pre>
-<pre class="r"><code>
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_smooth(method = &quot;lm&quot;) +
   scale_y_continuous(labels = scales::dollar) +
@@ -1116,6 +1093,7 @@ ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
        color = &quot;Awareness&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
+        legend.position = &quot;bottom&quot;,
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
@@ -1124,7 +1102,7 @@ ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
 </div>
 <h3 id="version-2-1">Version 2</h3>
 <p>Still, there is more I can do!</p>
-<p>I have a continuous predictor (SBC) and a categorical predictor (activism awareness). As such, I can use floodlight analysis to communicate at what specific threshold values of SBC there emerges a significant difference between being aware vs. unaware of Nike’s activism. I performed this floodlight analysis using the HAYES macro in SPSS. You can see the results in a screenshot below.</p>
+<p>I have a continuous predictor (SBC) and a categorical predictor (activism awareness). As such, I can use floodlight analysis to communicate at what specific values of SBC there emerges a significant difference between being aware vs. unaware of Nike’s activism. I performed this floodlight analysis using the HAYES macro in SPSS. You can see the results in a screenshot below.</p>
 <p style="text-align:center;">
 <img src="floodlight.png" alt="Logo" style = "width: 600px;">
 </p>
@@ -1144,6 +1122,7 @@ ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_vline(xintercept = c(14.09, 85.70), color = &quot;black&quot;, linetype = 2) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
+        legend.position = &quot;bottom&quot;,
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
@@ -1155,7 +1134,7 @@ ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
-  geom_smooth(method = &quot;lm&quot;) +
+    geom_smooth(method = &quot;lm&quot;) +
   scale_y_continuous(labels = scales::dollar) +
   labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
        y = &quot;Donations\n&quot;, 
@@ -1164,10 +1143,11 @@ ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
        color = &quot;Awareness&quot;) +
   scale_color_OkabeIto() +
   geom_vline(xintercept = c(14.09, 85.70), color = &quot;black&quot;, linetype = 2) +
-  annotate(&quot;label&quot;, label = &quot;Region of significance\nat SBC &lt; 14.09&quot;, x = 14.09, y = 4.5, color = &quot;black&quot;, size = 4.5) +
-  annotate(&quot;label&quot;, label = &quot;Region of significance\nat SBC &gt; 85.70&quot;, x = 85.70, y = 6.3, color = &quot;black&quot;, size = 4.5) +
+  annotate(&quot;label&quot;, label = &quot;Region of significance\nat SBC &lt; 14.09&quot;, x = 14.09, y = 4.5, color = &quot;black&quot;, size = 5) +
+  annotate(&quot;label&quot;, label = &quot;Region of significance\nat SBC &gt; 85.70&quot;, x = 85.70, y = 6.3, color = &quot;black&quot;, size = 5) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
+        legend.position = &quot;bottom&quot;,
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
@@ -1176,10 +1156,10 @@ ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
 </div>
 <p>SBC positively affects donation intentions for those with and without knowledge of Nike’s activism. However, knowledge moderates the strength of SBC’s effect on donation intentions.</p>
 <p>Donation intentions for Black Lives Matter were <em>highest</em> when participants had a strong connection to Nike and were aware of its activism. The caveat is that donation intentions for Black Lives Matter were <em>lowest</em> when participants had a weak connection to Nike and knew of its activism. This provides some evidence that consumers use their association with or disassociation from a focal brand to decide how to engage with a particular activist cause.</p>
-<p>This plot is intended more for a <strong>specialized audience</strong>, particularly those with expert knowledge of moderation and the idea behind floodlight analysis.</p>
+<p>Importantly, this plot is intended for more of a <strong>specialized audience</strong>, particularly academic journal editors who are familiar with self-brand connection and advanced statistical concepts, like floodlight analysis.</p>
 <p>But now another question emerges: What happens when we throw political orientation into the mix?</p>
 <h2 id="political-orientation">Political Orientation?</h2>
-<p>We can imagine that political orientation would matter a great deal when it comes to the amount of money consumers wish to give to activist cause Because such causes slant politically left or right, it would make sense that those whose political orientation aligns (conflicts) with the cause would want to donate more (less) to it. Let’s delve into the results to see what happened here!</p>
+<p>We can imagine that political orientation would matter a great deal when it comes to the amount of money consumers wish to give to activist organizations. Because the causes they represent slant politically left or right, it would make sense that those whose political orientation aligns (conflicts) with the cause would want to donate more (less). But does the effect of ideological alignment interact with SBC and activism awareness?</p>
 <p>To begin, we’ll clean the data a bit. The following code chunk accomplishes two main tasks:</p>
 <ol type="1">
 <li>Remove all participants who indicated their political orientation as “Other.”</li>
@@ -1201,8 +1181,9 @@ pol &lt;- d %&gt;%
             se = plotrix::std.error(donate_3))</code></pre>
 </div>
 <h2 id="identifying-the-distribution-of-donation-amount-for-each-political-orientation">Identifying the Distribution of Donation Amount for Each Political Orientation</h2>
+<p>Before even delving into SBC and activism awareness, I want to get a sense of the overall distribution of donations to Black Lives Matter for each of the three political orientations represented in the current study: conservative, liberal, and moderate. Since Black Lives Matter Black Lives Matter aligns more with left-leaning political motives than right-leaning, we should expect to see liberals donating to it more than conservatives or moderates overall.</p>
 <h3 id="visualization-1">Visualization 1</h3>
-<p>While perhaps not the most illustrative visualization of the data, the follow density plot depicts the overall distribution of donations to Black Lives Matter by three political orientations: conservative, liberal, and moderate.</p>
+<p>While perhaps not the most illustrative visualization of the data, the follow density plot depicts the exact intuition from above.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = donate_3, fill = polit)) +
@@ -1222,9 +1203,9 @@ ggplot(d, aes(x = donate_3, fill = polit)) +
         axis.title = element_text(size = 18, face = &quot;bold&quot;))</code></pre>
 <p><img src="edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism_files/figure-html5/distributions_1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<p>This is interesting enough, but some more information can be added to make drawing comparisons between the three political orientations a bit more intuitive. After all, density distributions are difficult to interpret, so additional visual cues will be helpful.</p>
+<p>The distribution of donations for liberals has less right skew to it than that for conservatives and moderates. This is interesting enough, but some more information can be added to make drawing comparisons between the three political orientations a bit more intuitive. After all, density distributions are difficult to interpret, so additional visual cues will be helpful.</p>
 <p>I would like to add lines to indicate the average donation amount for each political orientation. To do this, I will calculate means for each group and apply <code>geom_vline</code> to each distribution, with the <em>x</em>-intercept set as equal to the mean donation amount.</p>
-<p>Next, to make political orientation as salient as possible, I will re-color each density distribution to align with the party represented (i.e., red for conservative, blue for liberal, and green for moderate).</p>
+<p>Next, to make political orientation as salient as possible, I will re-color each density distribution to align with the party represented (i.e., red = conservative, blue = liberal, and green = moderate).</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 sum &lt;- pol %&gt;% 
@@ -1253,8 +1234,8 @@ ggplot(d, aes(x = donate_3, fill = polit)) +
         axis.title = element_text(size = 18, face = &quot;bold&quot;))</code></pre>
 <p><img src="edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism_files/figure-html5/distributions_2-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<p>It is interesting to see that there is more of a right skew to the distribution for conservatives and moderates than for liberals. This makes sense, as the cause, Black Lives Matter, aligns more with left-leaning political motives than right-leaning. But there might be more than meets the eye going on with the data here. Let’s look at how SBC and activism awareness affected donations to BLM by political orientation.</p>
-<p>To make comparisons as easy as possible, we will also drop moderates from the visualization and consider only the difference between conservatives and liberals.</p>
+<p>It is interesting to see that there is more of a right skew to the distribution for conservatives and moderates than for liberals. Though research suggests that density plots are visually hard to interpret, I think a <strong>general audience</strong> would still understand that a greater proportion of liberals donated higher amounts to Black Lives Matter than conservatives and moderates. The dashed mean lines also serve as helpful visual guidelines for making sense of differences between the political orientations.</p>
+<p>But there might be more than meets the eye going on with the data here. Let’s look at how SBC and activism awareness affected donations to BLM by political orientation.</p>
 <h2 id="did-sbc-and-awareness-influence-donations-for-conservatives-and-liberals">Did SBC and Awareness Influence Donations for Conservatives and Liberals?</h2>
 <p>I’d like to compare donations to Black Lives Matter by political orientation, SBC, and activism awareness. I will convert SBC to a categorical variable by applying a median split on SBC. All values above the median score for SBC will be coded as “High,” while all values below the median score for SBC will be coded as “Low.”</p>
 <p><strong>Note:</strong> Median splits <em>are</em> an outdated form of data manipulation. However, because the following visualization is intended for more of a general audience, I thought it would be an appropriate means of communicating the data.</p>
@@ -1288,7 +1269,7 @@ ggplot(pol, aes(x = sbc_cat, y = mean, fill = know2)) +
 <p><img src="edld-610-final-portfolio-a-critical-event-examination-of-the-effect-of-brand-activism-on-consumer-activism_files/figure-html5/pol_int_1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <h3 id="version-2-2">Version 2</h3>
-<p>Since moderates are in the middle of the political spectrum — and thus have less extreme political attitudes — their inclusion in the above visualization reduces interpretability. In other words, moderates add cognitive load to the plot at the expense of clarity. Because moderates are not as important as conservatives and liberals to our theoretical model, I will drop moderates from the plot altogether.</p>
+<p>Since moderates are in the middle of the political spectrum — and thus have less pronounced political attitudes — their inclusion in the above visualization reduces interpretability. In other words, moderates add cognitive load to the plot at the expense of clarity. Because moderates are not as important as conservatives and liberals to our theoretical model, I will drop moderates from the plot altogether.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 pol2 &lt;- pol %&gt;% 
@@ -1342,6 +1323,7 @@ ggplot(pol2, aes(x = sbc_cat, y = mean, fill = know2)) +
 </div>
 <p>As can be seen, the influence of SBC and awareness on conservatives appears staggering! Their donations to Black Lives Matter are &lt; $0.50 at low SBC, but skyrocket at high SBC. This is especially true for conservatives who were aware of Nike’s Kaepernick campaign, although the 95% interval around the mean is large.</p>
 <p>Interestingly, there was somewhat of a crossover interaction for liberals, such that being aware (vs. unaware) of Nike’s activism led to increased donations at high SBC, but decreased donations at low SBC.</p>
+<p>Due to the uncertainty in the above plot, this plot is once again intended for more of a <strong>specialized audience</strong>.</p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
