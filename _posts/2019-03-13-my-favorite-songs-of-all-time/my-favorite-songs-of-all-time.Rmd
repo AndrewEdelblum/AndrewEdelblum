@@ -43,7 +43,9 @@ What did my spreadsheet look like? I included the song, artist, album, and year 
 
 ```{r import}
 d <- import("./songs.csv", setclass = "tibble") %>% 
-  clean_names()
+  clean_names() %>% 
+  mutate(row = as.factor(row),
+         position = as.factor(position))
 ```
 
 ## Year of Release
@@ -52,10 +54,11 @@ The first thing I wanted to do was graph my favorite songs by the year they were
 
 ```{r release}
 ggplot(d, aes(x = year)) +
-  geom_density(fill = "cornflower blue", color = "white") +
-  labs(x = "Year", y = "Count", 
-       title = "Density Distribution of Top 100 Songs", 
-       subtitle = "Bimodal distribution reveals contemporary taste with some '70s tendencies") +
+  geom_density(fill = "cornflower blue", color = "white", alpha = .8) +
+  labs(x = "\nYear\n", 
+       y = "Count\n", 
+       title = "\nDensity Distribution of Top 100 Songs", 
+       subtitle = "Bimodal distribution reveals contemporary taste with some '70s tendencies\n") +
   xlim(1950, 2020) +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
@@ -63,7 +66,7 @@ ggplot(d, aes(x = year)) +
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = "bold"))
+        axis.title = element_text(size = 20, face = "bold"))
 ```
 
 A few interesting observations:
@@ -90,19 +93,19 @@ Here is what that first plot looks like when I color the columns differently for
 
 ```{r release_decade}
 ggplot(d, aes(x = decade, y = decade_count)) +
-  geom_bar(stat = "summary", fill = "cornflower blue") +
+  geom_bar(stat = "summary", fill = "cornflower blue", alpha = .8) +
   geom_text(aes(label = decade_count), vjust = -.5, size = 6, fontface = "bold") +
-  labs(x = "Decade", 
-       y = "Count", 
-       title = "Favorite Songs by Decade of Release", 
-       subtitle = "OK, but did the '80s even happen?") +
+  labs(x = "\nDecade\n", 
+       y = "Count\n", 
+       title = "\nFavorite Songs by Decade of Release", 
+       subtitle = "OK, but did the '80s even happen?\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = "bold"))
+        axis.title = element_text(size = 20, face = "bold"))
 ```
 
 My tastes are definitely skewed to the contemporary, but the '70s has some nice representation with 15 songs! Also, I've heard some people classify Nirvana as a classic rock band, so I guess even '90s music can be considered "oldies." 
@@ -117,19 +120,19 @@ d <- d %>%
   mutate(genre_freq = n())
 
 ggplot(d, aes(x = reorder(genre, genre_freq), y = genre_freq)) +
-  geom_bar(stat = "summary", fill = "cornflower blue", color = "white") +
+  geom_bar(stat = "summary", fill = "cornflower blue", color = "white", alpha = .8) +
   geom_text(aes(label = genre_freq), vjust = -.5, size = 6, fontface = "bold") +
-  labs(x = "Genre", 
-       y = "Count", 
-       title = "Favorite Songs by Genre", 
-       subtitle = "A frequency distribution that screams 'white dude'") +
+  labs(x = "\nGenre", 
+       y = "Count\n", 
+       title = "\nFavorite Songs by Genre", 
+       subtitle = "A frequency distribution that screams 'white dude'\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = "bold"))
+        axis.title = element_text(size = 20, face = "bold"))
 ```
 
 Talk about a "diverse" set of music... It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk. 
@@ -146,24 +149,26 @@ d <- d %>%
   mutate(disc_freq = n())
 
 ggplot(d, aes(x = discovery, y = disc_freq)) +
-  geom_bar(stat = "summary", fill = "cornflower blue", color = "white") +
+  geom_bar(stat = "summary", fill = "cornflower blue", color = "white", alpha = .8) +
   geom_text(aes(label = disc_freq), vjust = -.5, size = 6, fontface = "bold") +
-  labs(x = "Period of Discovery", 
-       y = "Count", 
-       title = "Favorite Songs by Period of Discovery", 
-       subtitle = "As the adage goes, college is an important time in one's life") +
+  labs(x = "\nPeriod of Discovery\n", 
+       y = "Count\n", 
+       title = "\nFavorite Songs by Period of Discovery", 
+       subtitle = "As the adage goes, college is an important time in one's life\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = "bold"))
+        axis.title = element_text(size = 20, face = "bold"))
 ```
 
 It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were... In thinking about it more, I came to realize how obvious this is. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me, I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music — and so much more — would not be the same without them.
 
 In sum, you're damn right I discovered most of my picks in college, and with the help of some good friends.
+
+### Genre of Favorite Songs by Period of Discovery
 
 That's revealing enough, but let's see what the genre breakdown looks like for each of the four life phases. Was I really as fixated on classic rock in high school as I suspect I was? Have I broadened my horizons at all since?
 
@@ -173,21 +178,79 @@ d <- d %>%
   mutate(specific = n())
 
 ggplot(d, aes(x = discovery, y = genre, fill = specific)) +
-  geom_tile() +
-  labs(x = "Period of Discovery", 
-       y = "Genre", 
+  geom_tile(alpha = .8) +
+  labs(x = "\nPeriod of Discovery\n", 
+       y = "Genre\n", 
        fill = "Count", 
        title = "Favorite Songs by Genre and Time of Discovery", 
-       subtitle = "My tastes have gotten more diverse over time, but only marginally") +
+       subtitle = "My tastes have gotten more diverse over time, but only marginally\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = "bold"))
+        axis.title = element_text(size = 20, face = "bold"))
 ```
 
 As this reveals, the answer to both of my hypothetical questions from above is a resounding **YES**. Seriously, 18 entries on my list are rock songs I discovered in high school. I have thankfully diversified my listening in the years since, albeit not by too much. There is a spike in alternative entries from the college years.
+
+## Heat Maps
+
+All this talk about my list, and I haven't even explored the rankings themselves. What musical decades tend to be at the top of my list? At what stage of life did I first discover my absolute favorite tracks? 
+
+While actually coding the following plots took only a matter of minutes, I'd been thinking of how to do it for weeks. It was like an insight problem: the solution came to me in a flash one Sunday afternoon.
+
+Essentially, I created two new variables in my spreadsheet: *row* and *position*. What these codes did in tandem was supply R a set of "coordinates" to place an individual track as its own square on a 10x10 grid. For example, the #1 song should appear as a single square in the top left-hand corner of the plot, followed by the #2 track immediately to its right. So, the plot reads like a book: Tracks #1-10 will go in decreasing order from left to right on the top-most row. Then, the second group of 10 tracks (#11-20) will appear in decreasing order from left to right on the row underneath. So on and so forth...
+
+### Heat Map I
+
+```{r heat_map_1}
+ggplot(d, aes(x = position, y = row, fill = decade)) +
+  geom_tile(color = "white", size = .5) +
+  scale_y_discrete(labels = c("10" = "#1-10", "9" = "#11-20", 
+                              "8" = "#21-30", "7" = "#31-40",
+                              "6" = "#41-50", "5" = "#51-60",
+                              "4" = "#61-70", "3" = "#71-80",
+                              "2" = "#81-90", "1" = "#91-100")) +
+  coord_equal() +
+  scale_x_discrete(breaks = NULL) +
+  scale_fill_brewer(palette = "RdYlBu") +
+  labs(title = "\nRankings: Colored by Decade of Release\n", fill = "Decade") +
+  theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        legend.title = element_text(size = 20, face = "bold"),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 15),
+        axis.title = element_blank())
+```
+
+Super cool! It's especially interesting to me that my '60s and '70s favorites tend to be closer to the top of my list. Over one-third of my top 30 tracks were released in those decades! As we established above, I was in the midst of somewhat of a classic rock obsession in high school. 
+
+Perhaps it's the case that songs I discovered earlier in life are closer to the heart, then. Let's find out by reproducing the same visualization, but with tracks colored by period of discovery instead of decade of release.
+
+### Heat Map II
+
+```{r heat_map_2}
+ggplot(d, aes(x = position, y = row, fill = discovery)) +
+  geom_tile(color = "white", size = .5) +
+  scale_y_discrete(labels = c("10" = "#1-10", "9" = "#11-20", 
+                              "8" = "#21-30", "7" = "#31-40",
+                              "6" = "#41-50", "5" = "#51-60",
+                              "4" = "#61-70", "3" = "#71-80",
+                              "2" = "#81-90", "1" = "#91-100")) +
+  coord_equal() +
+  scale_x_discrete(breaks = NULL) +
+  scale_fill_brewer(palette = "RdYlBu") +
+  labs(title = "\nRankings: Colored by Time of Discovery\n", fill = "Decade") +
+  theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        legend.title = element_text(size = 20, face = "bold"),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 15),
+        axis.title = element_blank())
+```
+
+Sure enough, exactly half of my top 30 songs came from childhood and high school. Not only that, but six of my top 10 tracks came from those early periods of discovery!
 
 ## The Ranked List
 

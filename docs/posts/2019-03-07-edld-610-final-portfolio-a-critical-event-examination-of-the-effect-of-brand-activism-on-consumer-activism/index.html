@@ -1354,10 +1354,10 @@ d &lt;- import(&quot;./d.csv&quot;, setclass = &quot;tibble&quot;) %&gt;%
 ggplot(d, aes(x = sbcavg, y = donate_3)) +
   geom_smooth(se = FALSE) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donations&quot;, 
-       title = &quot;SBC to Nike increased donations&quot;, 
-       subtitle = &quot;A 10-point increase in SBC is associated with a $0.33 boost in donation amount&quot;) +
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donations\n&quot;, 
+       title = &quot;\nSBC to Nike increased donations&quot;, 
+       subtitle = &quot;A 10-point increase in SBC is associated with a $0.33 boost in donation amount\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
@@ -1374,10 +1374,10 @@ ggplot(d, aes(x = sbcavg, y = donate_3)) +
   geom_smooth(method = &quot;lm&quot;) +
   geom_jitter(alpha = .6) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donations&quot;, 
-       title = &quot;SBC to Nike increased donations&quot;, 
-       subtitle = &quot;A 10-point increase in SBC is associated with a $0.33 boost in donation amount&quot;) +
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donations\n&quot;, 
+       title = &quot;\nSBC to Nike increased donations&quot;, 
+       subtitle = &quot;A 10-point increase in SBC is associated with a $0.33 boost in donation amount\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
@@ -1469,10 +1469,10 @@ F-statistic: 12.43 on 3 and 304 DF,  p-value: 1.084e-07</code></pre>
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_smooth(method = &quot;lm&quot;) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donations&quot;, 
-       title = &quot;Activism awareness by SBC interaction&quot;, 
-       subtitle = &quot;Stronger relationship between SBC and activism for those aware of activism&quot;, 
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donations\n&quot;, 
+       title = &quot;\nActivism awareness by SBC interaction&quot;, 
+       subtitle = &quot;Stronger relationship between SBC and activism for those aware of activism\n&quot;, 
        color = &quot;Awareness&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
@@ -1496,10 +1496,10 @@ d$know2 &lt;- factor(d$know2, levels = c(&quot;Yes&quot;, &quot;No&quot;))
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_smooth(method = &quot;lm&quot;) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donations&quot;, 
-       title = &quot;Activism awareness by SBC interaction&quot;, 
-       subtitle = &quot;Stronger relationship between SBC and activism for those aware of activism&quot;, 
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donations\n&quot;, 
+       title = &quot;\nActivism awareness by SBC interaction&quot;, 
+       subtitle = &quot;Stronger relationship between SBC and activism for those aware of activism\n&quot;, 
        color = &quot;Awareness&quot;) +
   geom_vline(xintercept = c(14.09, 85.70), color = &quot;black&quot;, linetype = 2) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
@@ -1517,10 +1517,10 @@ ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_smooth(method = &quot;lm&quot;) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donations&quot;, 
-       title = &quot;Activism awareness by SBC interaction&quot;, 
-       subtitle = &quot;Stronger relationship between SBC and activism for those aware of activism&quot;, 
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donations\n&quot;, 
+       title = &quot;\nActivism awareness by SBC interaction&quot;, 
+       subtitle = &quot;Stronger relationship between SBC and activism for those aware of activism\n&quot;, 
        color = &quot;Awareness&quot;) +
   scale_color_OkabeIto() +
   geom_vline(xintercept = c(14.09, 85.70), color = &quot;black&quot;, linetype = 2) +
@@ -1569,10 +1569,10 @@ ggplot(d, aes(x = donate_3, fill = polit)) +
   geom_density(alpha = .4) +
   scale_x_continuous(labels = scales::dollar) +
   facet_wrap(~polit, ncol = 1) +
-  labs(x = &quot;Donations to BLM&quot;, 
-       y = &quot;Density&quot;, 
+  labs(x = &quot;\nDonations to BLM\n&quot;, 
+       y = &quot;Density\n&quot;, 
        fill = &quot;Political Orientation&quot;, 
-       title = &quot;Donations to BLM by political orientation&quot;) +
+       title = &quot;\nDonations to BLM by political orientation\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.position = &quot;none&quot;,
@@ -1598,10 +1598,10 @@ ggplot(d, aes(x = donate_3, fill = polit)) +
   geom_vline(data = sum, aes(xintercept = mean), linetype = &quot;dashed&quot;) +
   scale_x_continuous(labels = scales::dollar) +
   facet_wrap(~polit, ncol = 1) +
-  labs(x = &quot;Donations to BLM&quot;, 
-       y = &quot;Density&quot;, 
+  labs(x = &quot;\nDonations to BLM\n&quot;, 
+       y = &quot;Density\n&quot;, 
        fill = &quot;Political Orientation&quot;, 
-       title = &quot;Donations to BLM by political orientation&quot;, 
+       title = &quot;\nDonations to BLM by political orientation\n&quot;, 
        caption = &quot;Dashed lines indicate mean donation&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
@@ -1632,11 +1632,11 @@ ggplot(pol, aes(x = sbc_cat, y = mean, fill = know2)) +
   geom_bar(stat = &quot;summary&quot;, color = &quot;black&quot;, alpha = .7, position = pd) +
   facet_wrap(~polit) +
   scale_y_continuous(labels = scales::dollar, limits = c(0, 10)) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donation&quot;, 
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donation\n&quot;, 
        fill = &quot;Awareness&quot;, 
-       title = &quot;Impact of political orientation on donations&quot;, 
-       subtitle = &quot;SBC and awareness impacted donations to BLM for conservatives and liberals&quot;) +
+       title = &quot;\nImpact of political orientation on donations&quot;, 
+       subtitle = &quot;SBC and awareness impacted donations to BLM for conservatives and liberals\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
@@ -1658,11 +1658,11 @@ ggplot(pol2, aes(x = sbc_cat, y = mean, fill = know2)) +
   geom_bar(stat = &quot;summary&quot;, color = &quot;black&quot;, alpha = .7, position = pd) +
   facet_wrap(~polit) +
   scale_y_continuous(labels = scales::dollar, limits = c(0, 10)) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donation&quot;, 
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donation\n&quot;, 
        fill = &quot;Awareness&quot;, 
-       title = &quot;Impact of political orientation on donations&quot;, 
-       subtitle = &quot;SBC and awareness impacted donations to BLM for conservatives and liberals&quot;) +
+       title = &quot;\nImpact of political orientation on donations&quot;, 
+       subtitle = &quot;SBC and awareness impacted donations to BLM for conservatives and liberals\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
@@ -1685,11 +1685,11 @@ ggplot(pol2, aes(x = sbc_cat, y = mean, fill = know2)) +
   scale_fill_OkabeIto() +
   facet_wrap(~polit) +
   scale_y_continuous(labels = scales::dollar, limits = c(0, 10)) +
-  labs(x = &quot;Self-Brand Connection (SBC)&quot;, 
-       y = &quot;Donation&quot;, 
+  labs(x = &quot;\nSelf-Brand Connection (SBC)\n&quot;, 
+       y = &quot;Donation\n&quot;, 
        fill = &quot;Awareness&quot;, 
-       title = &quot;Impact of political orientation on donations&quot;, 
-       subtitle = &quot;SBC and awareness impacted donations to BLM for conservatives and liberals&quot;) +
+       title = &quot;\nImpact of political orientation on donations&quot;, 
+       subtitle = &quot;SBC and awareness impacted donations to BLM for conservatives and liberals\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),

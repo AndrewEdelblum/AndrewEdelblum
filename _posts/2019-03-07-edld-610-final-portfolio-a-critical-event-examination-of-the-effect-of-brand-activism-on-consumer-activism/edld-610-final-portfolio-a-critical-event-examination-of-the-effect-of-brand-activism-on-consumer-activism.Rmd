@@ -71,10 +71,10 @@ I started by plotting the regression line via `geom_smooth`.
 ggplot(d, aes(x = sbcavg, y = donate_3)) +
   geom_smooth(se = FALSE) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donations", 
-       title = "SBC to Nike increased donations", 
-       subtitle = "A 10-point increase in SBC is associated with a $0.33 boost in donation amount") +
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donations\n", 
+       title = "\nSBC to Nike increased donations", 
+       subtitle = "A 10-point increase in SBC is associated with a $0.33 boost in donation amount\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
@@ -93,10 +93,10 @@ ggplot(d, aes(x = sbcavg, y = donate_3)) +
   geom_smooth(method = "lm") +
   geom_jitter(alpha = .6) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donations", 
-       title = "SBC to Nike increased donations", 
-       subtitle = "A 10-point increase in SBC is associated with a $0.33 boost in donation amount") +
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donations\n", 
+       title = "\nSBC to Nike increased donations", 
+       subtitle = "A 10-point increase in SBC is associated with a $0.33 boost in donation amount\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
@@ -148,10 +148,10 @@ summary(model)
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_smooth(method = "lm") +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donations", 
-       title = "Activism awareness by SBC interaction", 
-       subtitle = "Stronger relationship between SBC and activism for those aware of activism", 
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donations\n", 
+       title = "\nActivism awareness by SBC interaction", 
+       subtitle = "Stronger relationship between SBC and activism for those aware of activism\n", 
        color = "Awareness") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
@@ -177,10 +177,10 @@ d$know2 <- factor(d$know2, levels = c("Yes", "No"))
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_smooth(method = "lm") +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donations", 
-       title = "Activism awareness by SBC interaction", 
-       subtitle = "Stronger relationship between SBC and activism for those aware of activism", 
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donations\n", 
+       title = "\nActivism awareness by SBC interaction", 
+       subtitle = "Stronger relationship between SBC and activism for those aware of activism\n", 
        color = "Awareness") +
   geom_vline(xintercept = c(14.09, 85.70), color = "black", linetype = 2) +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
@@ -199,10 +199,10 @@ Still, what is being communicated with these vertical lines is not clear. As suc
 ggplot(d, aes(x = sbcavg, y = donate_3, color = know2)) +
   geom_smooth(method = "lm") +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donations", 
-       title = "Activism awareness by SBC interaction", 
-       subtitle = "Stronger relationship between SBC and activism for those aware of activism", 
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donations\n", 
+       title = "\nActivism awareness by SBC interaction", 
+       subtitle = "Stronger relationship between SBC and activism for those aware of activism\n", 
        color = "Awareness") +
   scale_color_OkabeIto() +
   geom_vline(xintercept = c(14.09, 85.70), color = "black", linetype = 2) +
@@ -259,10 +259,10 @@ ggplot(d, aes(x = donate_3, fill = polit)) +
   geom_density(alpha = .4) +
   scale_x_continuous(labels = scales::dollar) +
   facet_wrap(~polit, ncol = 1) +
-  labs(x = "Donations to BLM", 
-       y = "Density", 
+  labs(x = "\nDonations to BLM\n", 
+       y = "Density\n", 
        fill = "Political Orientation", 
-       title = "Donations to BLM by political orientation") +
+       title = "\nDonations to BLM by political orientation\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.position = "none",
@@ -290,10 +290,10 @@ ggplot(d, aes(x = donate_3, fill = polit)) +
   geom_vline(data = sum, aes(xintercept = mean), linetype = "dashed") +
   scale_x_continuous(labels = scales::dollar) +
   facet_wrap(~polit, ncol = 1) +
-  labs(x = "Donations to BLM", 
-       y = "Density", 
+  labs(x = "\nDonations to BLM\n", 
+       y = "Density\n", 
        fill = "Political Orientation", 
-       title = "Donations to BLM by political orientation", 
+       title = "\nDonations to BLM by political orientation\n", 
        caption = "Dashed lines indicate mean donation") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
@@ -329,11 +329,11 @@ ggplot(pol, aes(x = sbc_cat, y = mean, fill = know2)) +
   geom_bar(stat = "summary", color = "black", alpha = .7, position = pd) +
   facet_wrap(~polit) +
   scale_y_continuous(labels = scales::dollar, limits = c(0, 10)) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donation", 
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donation\n", 
        fill = "Awareness", 
-       title = "Impact of political orientation on donations", 
-       subtitle = "SBC and awareness impacted donations to BLM for conservatives and liberals") +
+       title = "\nImpact of political orientation on donations", 
+       subtitle = "SBC and awareness impacted donations to BLM for conservatives and liberals\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
@@ -356,11 +356,11 @@ ggplot(pol2, aes(x = sbc_cat, y = mean, fill = know2)) +
   geom_bar(stat = "summary", color = "black", alpha = .7, position = pd) +
   facet_wrap(~polit) +
   scale_y_continuous(labels = scales::dollar, limits = c(0, 10)) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donation", 
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donation\n", 
        fill = "Awareness", 
-       title = "Impact of political orientation on donations", 
-       subtitle = "SBC and awareness impacted donations to BLM for conservatives and liberals") +
+       title = "\nImpact of political orientation on donations", 
+       subtitle = "SBC and awareness impacted donations to BLM for conservatives and liberals\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
@@ -384,11 +384,11 @@ ggplot(pol2, aes(x = sbc_cat, y = mean, fill = know2)) +
   scale_fill_OkabeIto() +
   facet_wrap(~polit) +
   scale_y_continuous(labels = scales::dollar, limits = c(0, 10)) +
-  labs(x = "Self-Brand Connection (SBC)", 
-       y = "Donation", 
+  labs(x = "\nSelf-Brand Connection (SBC)\n", 
+       y = "Donation\n", 
        fill = "Awareness", 
-       title = "Impact of political orientation on donations", 
-       subtitle = "SBC and awareness impacted donations to BLM for conservatives and liberals") +
+       title = "\nImpact of political orientation on donations", 
+       subtitle = "SBC and awareness impacted donations to BLM for conservatives and liberals\n") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),

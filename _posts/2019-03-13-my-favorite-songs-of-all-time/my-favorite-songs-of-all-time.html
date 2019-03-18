@@ -49,7 +49,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["friends.jpg","my-favorite-songs-of-all-time_files/bowser-1.9.3/bowser.min.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/css/crosstalk.css","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.js.map","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.min.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.min.js.map","my-favorite-songs-of-all-time_files/distill-2.2.21/template.v2.js","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery-1.png","my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png","my-favorite-songs-of-all-time_files/figure-html5/release-1.png","my-favorite-songs-of-all-time_files/htmlwidgets-1.3/htmlwidgets.js","my-favorite-songs-of-all-time_files/jquery-1.11.3/jquery.min.js","my-favorite-songs-of-all-time_files/kePrint-0.0.1/kePrint.js","my-favorite-songs-of-all-time_files/plotly-binding-4.8.0/plotly.js","my-favorite-songs-of-all-time_files/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css","my-favorite-songs-of-all-time_files/plotly-main-1.39.2/plotly-latest.min.js","my-favorite-songs-of-all-time_files/typedarray-0.1/typedarray.min.js","my-favorite-songs-of-all-time_files/webcomponents-2.0.0/webcomponents.js","songs.csv"]}
+  {"type":"character","attributes":{},"value":["friends.jpg","my-favorite-songs-of-all-time_files/bowser-1.9.3/bowser.min.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/css/crosstalk.css","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.js.map","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.min.js","my-favorite-songs-of-all-time_files/crosstalk-1.0.0/js/crosstalk.min.js.map","my-favorite-songs-of-all-time_files/distill-2.2.21/template.v2.js","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png","my-favorite-songs-of-all-time_files/figure-html5/discovery-1.png","my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png","my-favorite-songs-of-all-time_files/figure-html5/heat_map_1-1.png","my-favorite-songs-of-all-time_files/figure-html5/heat_map_2-1.png","my-favorite-songs-of-all-time_files/figure-html5/heat_map-1.png","my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png","my-favorite-songs-of-all-time_files/figure-html5/release-1.png","my-favorite-songs-of-all-time_files/figure-html5/unnamed-chunk-1-1.png","my-favorite-songs-of-all-time_files/htmlwidgets-1.3/htmlwidgets.js","my-favorite-songs-of-all-time_files/jquery-1.11.3/jquery.min.js","my-favorite-songs-of-all-time_files/kePrint-0.0.1/kePrint.js","my-favorite-songs-of-all-time_files/plotly-binding-4.8.0/plotly.js","my-favorite-songs-of-all-time_files/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css","my-favorite-songs-of-all-time_files/plotly-main-1.39.2/plotly-latest.min.js","my-favorite-songs-of-all-time_files/typedarray-0.1/typedarray.min.js","my-favorite-songs-of-all-time_files/webcomponents-2.0.0/webcomponents.js","songs.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -979,17 +979,20 @@ My best friends and I in 2014 enjoying some Italian ice before — you guessed i
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 d &lt;- import(&quot;./songs.csv&quot;, setclass = &quot;tibble&quot;) %&gt;% 
-  clean_names()</code></pre>
+  clean_names() %&gt;% 
+  mutate(row = as.factor(row),
+         position = as.factor(position))</code></pre>
 </div>
 <h2 id="year-of-release">Year of Release</h2>
 <p>The first thing I wanted to do was graph my favorite songs by the year they were released.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = year)) +
-  geom_density(fill = &quot;cornflower blue&quot;, color = &quot;white&quot;) +
-  labs(x = &quot;Year&quot;, y = &quot;Count&quot;, 
-       title = &quot;Density Distribution of Top 100 Songs&quot;, 
-       subtitle = &quot;Bimodal distribution reveals contemporary taste with some &#39;70s tendencies&quot;) +
+  geom_density(fill = &quot;cornflower blue&quot;, color = &quot;white&quot;, alpha = .8) +
+  labs(x = &quot;\nYear\n&quot;, 
+       y = &quot;Count\n&quot;, 
+       title = &quot;\nDensity Distribution of Top 100 Songs&quot;, 
+       subtitle = &quot;Bimodal distribution reveals contemporary taste with some &#39;70s tendencies\n&quot;) +
   xlim(1950, 2020) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
@@ -997,7 +1000,7 @@ ggplot(d, aes(x = year)) +
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = &quot;bold&quot;))</code></pre>
+        axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/release-1.png" width="960" /></p>
 </div>
 <p>A few interesting observations:</p>
@@ -1020,19 +1023,19 @@ d &lt;- d %&gt;%
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(d, aes(x = decade, y = decade_count)) +
-  geom_bar(stat = &quot;summary&quot;, fill = &quot;cornflower blue&quot;) +
+  geom_bar(stat = &quot;summary&quot;, fill = &quot;cornflower blue&quot;, alpha = .8) +
   geom_text(aes(label = decade_count), vjust = -.5, size = 6, fontface = &quot;bold&quot;) +
-  labs(x = &quot;Decade&quot;, 
-       y = &quot;Count&quot;, 
-       title = &quot;Favorite Songs by Decade of Release&quot;, 
-       subtitle = &quot;OK, but did the &#39;80s even happen?&quot;) +
+  labs(x = &quot;\nDecade\n&quot;, 
+       y = &quot;Count\n&quot;, 
+       title = &quot;\nFavorite Songs by Decade of Release&quot;, 
+       subtitle = &quot;OK, but did the &#39;80s even happen?\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = &quot;bold&quot;))</code></pre>
+        axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/release_decade-1.png" width="960" /></p>
 </div>
 <p>My tastes are definitely skewed to the contemporary, but the ’70s has some nice representation with 15 songs! Also, I’ve heard some people classify Nirvana as a classic rock band, so I guess even ’90s music can be considered “oldies.”</p>
@@ -1045,19 +1048,19 @@ d &lt;- d %&gt;%
   mutate(genre_freq = n())
 
 ggplot(d, aes(x = reorder(genre, genre_freq), y = genre_freq)) +
-  geom_bar(stat = &quot;summary&quot;, fill = &quot;cornflower blue&quot;, color = &quot;white&quot;) +
+  geom_bar(stat = &quot;summary&quot;, fill = &quot;cornflower blue&quot;, color = &quot;white&quot;, alpha = .8) +
   geom_text(aes(label = genre_freq), vjust = -.5, size = 6, fontface = &quot;bold&quot;) +
-  labs(x = &quot;Genre&quot;, 
-       y = &quot;Count&quot;, 
-       title = &quot;Favorite Songs by Genre&quot;, 
-       subtitle = &quot;A frequency distribution that screams &#39;white dude&#39;&quot;) +
+  labs(x = &quot;\nGenre&quot;, 
+       y = &quot;Count\n&quot;, 
+       title = &quot;\nFavorite Songs by Genre&quot;, 
+       subtitle = &quot;A frequency distribution that screams &#39;white dude&#39;\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = &quot;bold&quot;))</code></pre>
+        axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/genre_plot-1.png" width="960" /></p>
 </div>
 <p>Talk about a “diverse” set of music… It looks like 80% of my list is composed of music that can be classified, at least loosely, as rock, alternative, and punk.</p>
@@ -1072,23 +1075,24 @@ d &lt;- d %&gt;%
   mutate(disc_freq = n())
 
 ggplot(d, aes(x = discovery, y = disc_freq)) +
-  geom_bar(stat = &quot;summary&quot;, fill = &quot;cornflower blue&quot;, color = &quot;white&quot;) +
+  geom_bar(stat = &quot;summary&quot;, fill = &quot;cornflower blue&quot;, color = &quot;white&quot;, alpha = .8) +
   geom_text(aes(label = disc_freq), vjust = -.5, size = 6, fontface = &quot;bold&quot;) +
-  labs(x = &quot;Period of Discovery&quot;, 
-       y = &quot;Count&quot;, 
-       title = &quot;Favorite Songs by Period of Discovery&quot;, 
-       subtitle = &quot;As the adage goes, college is an important time in one&#39;s life&quot;) +
+  labs(x = &quot;\nPeriod of Discovery\n&quot;, 
+       y = &quot;Count\n&quot;, 
+       title = &quot;\nFavorite Songs by Period of Discovery&quot;, 
+       subtitle = &quot;As the adage goes, college is an important time in one&#39;s life\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
         legend.background = element_rect(size = .5),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = &quot;bold&quot;))</code></pre>
+        axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery-1.png" width="960" /></p>
 </div>
 <p>It looks like a vast majority (nearly 50%) of my favorite songs came from college. What a formative four years those were… In thinking about it more, I came to realize how obvious this is. Those two best friends I mentioned at the very beginning of this document, the ones who started this year-end list-making tradition with me, I met them my freshman year of college. They know a lot more about music than I ever will, and they introduced me to so many of the songs on this list. My taste in music — and so much more — would not be the same without them.</p>
 <p>In sum, you’re damn right I discovered most of my picks in college, and with the help of some good friends.</p>
+<h3 id="genre-of-favorite-songs-by-period-of-discovery">Genre of Favorite Songs by Period of Discovery</h3>
 <p>That’s revealing enough, but let’s see what the genre breakdown looks like for each of the four life phases. Was I really as fixated on classic rock in high school as I suspect I was? Have I broadened my horizons at all since?</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1097,21 +1101,72 @@ d &lt;- d %&gt;%
   mutate(specific = n())
 
 ggplot(d, aes(x = discovery, y = genre, fill = specific)) +
-  geom_tile() +
-  labs(x = &quot;Period of Discovery&quot;, 
-       y = &quot;Genre&quot;, 
+  geom_tile(alpha = .8) +
+  labs(x = &quot;\nPeriod of Discovery\n&quot;, 
+       y = &quot;Genre\n&quot;, 
        fill = &quot;Count&quot;, 
        title = &quot;Favorite Songs by Genre and Time of Discovery&quot;, 
-       subtitle = &quot;My tastes have gotten more diverse over time, but only marginally&quot;) +
+       subtitle = &quot;My tastes have gotten more diverse over time, but only marginally\n&quot;) +
   theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = &quot;bold&quot;),
         legend.text = element_text(size = 15),
         axis.text = element_text(size = 15),
-        axis.title = element_text(size = 18, face = &quot;bold&quot;))</code></pre>
+        axis.title = element_text(size = 20, face = &quot;bold&quot;))</code></pre>
 <p><img src="my-favorite-songs-of-all-time_files/figure-html5/discovery_plot2-1.png" width="960" /></p>
 </div>
 <p>As this reveals, the answer to both of my hypothetical questions from above is a resounding <strong>YES</strong>. Seriously, 18 entries on my list are rock songs I discovered in high school. I have thankfully diversified my listening in the years since, albeit not by too much. There is a spike in alternative entries from the college years.</p>
+<h2 id="heat-maps">Heat Maps</h2>
+<p>All this talk about my list, and I haven’t even explored the rankings themselves. What musical decades tend to be at the top of my list? At what stage of life did I first discover my absolute favorite tracks?</p>
+<p>While actually coding the following plots took only a matter of minutes, I’d been thinking of how to do it for weeks. It was like an insight problem: the solution came to me in a flash one Sunday afternoon.</p>
+<p>Essentially, I created two new variables in my spreadsheet: <em>row</em> and <em>position</em>. What these codes did in tandem was supply R a set of “coordinates” to place an individual track as its own square on a 10x10 grid. For example, the #1 song should appear as a single square in the top left-hand corner of the plot, followed by the #2 track immediately to its right. So, the plot reads like a book: Tracks #1-10 will go in decreasing order from left to right on the top-most row. Then, the second group of 10 tracks (#11-20) will appear in decreasing order from left to right on the row underneath. So on and so forth…</p>
+<h3 id="heat-map-i">Heat Map I</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ggplot(d, aes(x = position, y = row, fill = decade)) +
+  geom_tile(color = &quot;white&quot;, size = .5) +
+  scale_y_discrete(labels = c(&quot;10&quot; = &quot;#1-10&quot;, &quot;9&quot; = &quot;#11-20&quot;, 
+                              &quot;8&quot; = &quot;#21-30&quot;, &quot;7&quot; = &quot;#31-40&quot;,
+                              &quot;6&quot; = &quot;#41-50&quot;, &quot;5&quot; = &quot;#51-60&quot;,
+                              &quot;4&quot; = &quot;#61-70&quot;, &quot;3&quot; = &quot;#71-80&quot;,
+                              &quot;2&quot; = &quot;#81-90&quot;, &quot;1&quot; = &quot;#91-100&quot;)) +
+  coord_equal() +
+  scale_x_discrete(breaks = NULL) +
+  scale_fill_brewer(palette = &quot;RdYlBu&quot;) +
+  labs(title = &quot;\nRankings: Colored by Decade of Release\n&quot;, fill = &quot;Decade&quot;) +
+  theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        legend.title = element_text(size = 20, face = &quot;bold&quot;),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 15),
+        axis.title = element_blank())</code></pre>
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/heat_map_1-1.png" width="960" /></p>
+</div>
+<p>Super cool! It’s especially interesting to me that my ’60s and ’70s favorites tend to be closer to the top of my list. Over one-third of my top 30 tracks were released in those decades! As we established above, I was in the midst of somewhat of a classic rock obsession in high school.</p>
+<p>Perhaps it’s the case that songs I discovered earlier in life are closer to the heart, then. Let’s find out by reproducing the same visualization, but with tracks colored by period of discovery instead of decade of release.</p>
+<h3 id="heat-map-ii">Heat Map II</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ggplot(d, aes(x = position, y = row, fill = discovery)) +
+  geom_tile(color = &quot;white&quot;, size = .5) +
+  scale_y_discrete(labels = c(&quot;10&quot; = &quot;#1-10&quot;, &quot;9&quot; = &quot;#11-20&quot;, 
+                              &quot;8&quot; = &quot;#21-30&quot;, &quot;7&quot; = &quot;#31-40&quot;,
+                              &quot;6&quot; = &quot;#41-50&quot;, &quot;5&quot; = &quot;#51-60&quot;,
+                              &quot;4&quot; = &quot;#61-70&quot;, &quot;3&quot; = &quot;#71-80&quot;,
+                              &quot;2&quot; = &quot;#81-90&quot;, &quot;1&quot; = &quot;#91-100&quot;)) +
+  coord_equal() +
+  scale_x_discrete(breaks = NULL) +
+  scale_fill_brewer(palette = &quot;RdYlBu&quot;) +
+  labs(title = &quot;\nRankings: Colored by Time of Discovery\n&quot;, fill = &quot;Decade&quot;) +
+  theme(plot.title = element_text(size = 30, face = &quot;bold&quot;, hjust = 0.5), 
+        plot.subtitle = element_text(size = 15, hjust = 0.5),
+        legend.title = element_text(size = 20, face = &quot;bold&quot;),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 15),
+        axis.title = element_blank())</code></pre>
+<p><img src="my-favorite-songs-of-all-time_files/figure-html5/heat_map_2-1.png" width="960" /></p>
+</div>
+<p>Sure enough, exactly half of my top 30 songs came from childhood and high school. Not only that, but six of my top 10 tracks came from those early periods of discovery!</p>
 <h2 id="the-ranked-list">The Ranked List</h2>
 <p>OK, you’ve been very patient. After all that, I finally give to you the completed ranked list of my 100 favorite songs, as of 2017. There’s even a Spotify playlist embedded in this very document, with all the songs in their correct order for your listening pleasure!</p>
 <p>I initially made this document at the end of 2017, after the first term of my PhD program. It’s amazing how much I’ve learned only a year later. I’d never seen myself as a coder or data scientist before grad school, but my program has taught me that anticipated difficulty is no reason to shy away from something new, especially if it’s something you care enough about.</p>
