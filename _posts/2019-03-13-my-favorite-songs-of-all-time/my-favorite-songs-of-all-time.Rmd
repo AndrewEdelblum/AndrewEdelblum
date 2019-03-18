@@ -12,7 +12,7 @@ output:
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 7)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 9)
 
 library(dplyr)
 library(tidyverse)
@@ -24,7 +24,6 @@ library(plotly)
 theme_set(theme_minimal())
 library(kableExtra)
 options(knitr.table.format = "html") 
-library(plotly)
 ```
 
 My two best friends and I challenged each other to list our top 100 favorite songs of all time at the end of 2017. This is by no means an easy task, but the three of us are just the music-obsessed folks to do it. Still, an all-too-obvious thought came to me as I went about logging my 100 tracks: *What an interesting dataset!* So, once I completed my rankings, I tried my hand at visualizing it. 

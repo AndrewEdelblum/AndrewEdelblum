@@ -14,7 +14,7 @@ library(kableExtra)
 options(knitr.table.format = "html")
 ```
 
-<p style = "text-align:center;"><img src = "real_me.jpg" alt = "Logo" style = "width: 600px;"></p>
+<p style = "text-align:center;"><img src = "real_me.jpg" alt = "Logo"></p>
 
 My name is **Andrew Edelblum**! 
 
