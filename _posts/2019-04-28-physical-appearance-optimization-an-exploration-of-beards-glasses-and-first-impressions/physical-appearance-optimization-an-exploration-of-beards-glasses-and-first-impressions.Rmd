@@ -395,7 +395,7 @@ ggplot(summary, aes(x = beard, y = mean, fill = glasses)) +
                 position = pd, width = 0.2) +
   facet_wrap(~gen) +
   scale_fill_OkabeIto() +
-  labs(x = "Beard", y = "Attractiveness", fill = "Glasses", title = "Attractiveness by Gender, re: Beard + Glasses", subtitle = "Women find me most attractive with a beard and glasses") +
+  labs(x = "Beard", y = "Attractiveness", fill = "Glasses", title = "Attractiveness, re: Beard + Glasses", subtitle = "Women find me most attractive with a beard and glasses") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
