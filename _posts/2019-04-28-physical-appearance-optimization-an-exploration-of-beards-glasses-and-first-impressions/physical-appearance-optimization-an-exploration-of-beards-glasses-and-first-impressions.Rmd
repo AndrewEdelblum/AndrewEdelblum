@@ -1,11 +1,11 @@
 ---
 title: "Physical Appearance Optimization: An Exploration of Beards, Glasses, and First Impressions"
 description: |
-  I always wanted to know if facial hair impacts how old people think I am. So, I tested it.
+  I always wanted to know if facial hair impacts how old people think I am. So, I put that to the test in a randomized experiment.
 author:
   - name: Andrew Edelblum
     url: https://twitter.com/andrewedelblum
-date: 04-28-2019
+date: 05-27-2019
 output:
   distill::distill_article:
     self_contained: false
@@ -45,15 +45,15 @@ d <- import("./d.csv", setclass = "tibble") %>%
   filter(age != 556)
 ```
 
-On March 24, 2015, Facebook introduced a new feature to its platform called **On This Day**, a one-stop showcase of your posts on the current date from past years. Note: If you ever want to know what you posted *on this day* two years ago, On This Day — dubbed **Memories**, as of 2018 — is your easy way to do it. 
+On March 24, 2015, Facebook introduced a new feature to its platform called **On This Day**, a one-stop showcase of all your posts on the current date from years past. If you want to know what you posted on Facebook on this *exact* date two years ago, On This Day — dubbed **Memories**, as of 2018 — is your easy way to do it. 
 
 Having access to these "memories" is fun and, at times, embarrassing. It reminds you of as many clever posts you wrote as ones you'd rather go on forgetting. "Did I really post *that*? What was I thinking?" Yes, the data indexing in our modern social media landscape is both grand and terrifying, isn't it?
 
-My Facebook Memories are often in the latter category, so it's become somewhat of a masochistic ritual of mine to read them every morning. About a month ago, I was scrolling through my Facebook Memories for the day when I came across a silly post I shared in 2015.
+My Facebook Memories are often in the latter category, so it's become somewhat of a masochistic ritual of mine to read my Memories every morning. A couple months ago, I was scrolling through my Facebook Memories for the day when I came across a silly post I shared in 2015.
 
 <p style = "text-align:center;"><img src = "fb.png" alt = "Logo"></p>
 
-*Funny*, I thought. I'd always thought I had a young face. This Facebook status must have been some bitter reflection on how I thought I needed some amount of facial hair to "look my age." Besides, I'd just turned 21 when I posted it and was feeling particularly bruised about getting carded at New Jersey bars. This appeared to happen more when I had a clean-shaven face than when I had a faint mustache / beard combo. 
+*Funny*, I thought. I'd always thought I had a young face. This Facebook status was certainly some bitter reflection on how I thought I needed some amount of facial hair to "look my age." Besides, I'd just turned 21 when I posted it and felt bruised about getting carded at some of my favorite New Jersey bars. This appeared to happen more when I had a clean-shaven face than when I had a faint mustache / beard combo. 
 
 Now, a couple years ago, I would have glanced at this status, chuckled, and moved on with my day. But graduate school has influenced my thinking in more ways than I can count. So, with my "apprentice data scientist" hat equipped, I came to see this Facebook status in a new light: *This is a statistical hypothesis that can be tested empirically.*
 
@@ -61,7 +61,7 @@ Now, a couple years ago, I would have glanced at this status, chuckled, and move
 
 ### The Regression Equation and Terms
 
-I rearranged the terms a bit and came up with the following regression equation for what I planned to investigate.
+I thought about the terms a bit and came up with the following regression equation for what I planned to investigate.
 
 $$PerceivedAge_{i} = \beta_0 + \beta_1Beard_i + \epsilon_i$$
 
@@ -70,16 +70,14 @@ The above equation is designed to assess how old people think I am on the basis 
 - ${Beard}$ = a binary "dummy" variable coded as 0 or 1, where 0 = shaven, 1 = beard.
 - ${\beta_0}$ = my perceived age when beard = 0.
 - ${\beta_1}$ = the change in perceived age associated with having (vs. not having) a beard, i.e., when ${Beard}$ increases from 0 to 1.
-- ${\epsilon}$ = error, or the average distance between how old people think I am and what my regression predicts.
-
-Those are my model specifications. 
+- ${\epsilon}$ = error, or the average distance between how old people actually think I am and what my regression predicts.
 
 ### The Hypotheses
 
 Now, my original Facebook status makes a few interesting assertions. We'll call these "hypotheses." 
 
 - $H_1$: I will look five years older with (vs. without) a beard. 
-- $H_2$: Having a beard will not add years to my *perceived* age, but rather mitigate the threat of looking younger than my *current* age. In other words, having a beard will make me look like my actual age, whereas shaving will reduce my perceived age by five. 
+- $H_2$: Having a beard will not add years to my *perceived* age — but rather mitigate the threat of looking younger than my *current* age. In other words, having a beard will make me look like my actual age, whereas shaving will reduce my perceived age by five. 
 
 Using formal terms:
 
@@ -90,7 +88,7 @@ Funny enough, I posted a *second* Facebook status on the subject of beards later
 
 <p style = "text-align:center;"><img src = "fb2.png" width = "40%" alt = "Logo">
 
-*"Whatever age I look [like] with a beard, I guarantee I look at least two years younger without it."* **At least** two years... Would you look at that? It sounds like my 21 year-old self was talking confidence intervals. I set a lower bound of two, meaning I anticipated a minimum two-year age differential between having vs. not having a beard. With an upper bound delineation of, say, five, we come up with a confidence interval of something like 95% CI [2, 5]. For simplicity's sake, however, we'll stick with the original hypotheses listed above.
+*"Whatever age I look [like] with a beard, I guarantee I look at least two years younger without it."* **At least** two years... Would you look at that? It sounds like my 21 year-old self was talking confidence intervals. I set a lower bound of two, meaning I anticipated a minimum two-year age differential between having vs. not having a beard.
 
 ## Designing an Experiment to Test the Effect of Having a Beard on My Perceived Age
 
@@ -110,23 +108,23 @@ Here's what I settled on.
 
 <p style = "text-align:center;"><img src = "just2.png" alt = "Logo" width="40%"></p>
 
-Now, I can already hear the critiques: First, there are some construct validity issues to discuss. In the beardless picture, I'm not clean-shaven. And, in the bearded picture, it looks more like I have a scattered dusting of facial hair than what experts might formally recognize as a "beard." How can I purport to be measuring the influence of **BEARD** if I don't even have a "real" one in the picture? I acknowledge this concern. However, I promise these photos are the best ones for me to use. Why?
+Now, I can already hear the critiques: First, there are some construct validity issues to discuss. In the beardless picture, I'm not clean-shaven. And, in the bearded picture, it looks more like I have a scattered dusting of facial hair than what experts might formally recognize as a "beard." How can I purport to be measuring the influence of having a beard if I don't even have a "real" beard in the picture? I acknowledge this concern. However, I promise these photos are the best ones for me to use. Why?
 
-- **External validity**: I never have a full-on ZZ Top beard, nor do I often take to my face with a close-shaving manual razor. In turn, these images represent what *I* mean when I say beard vs. no beard. They're how *I* choose to present myself — and I'd much rather test that than whatever this is (courtesy of a silly Snapchat filter).
+- **Ecological validity**: I never have a full-on ZZ Top beard, nor do I often take to my face with a close-shaving manual razor. In turn, these images represent what *I* mean when I say beard vs. no beard. They're how *I* choose to present myself — and I'd much rather test that than whatever this is (courtesy of a silly photo filter).
 
 <p style = "text-align:center;"><img src = "beard.jpg" alt = "Logo">
 
-- **Conservative test of concept**: By this I mean the differences in images are so slight, so subtle, that detecting any statistically significant difference in outcomes between them would be a good indictor of some true effect. In other words, if there's a difference in perceived age with *these* photos, just imagine what the effect might look like if I had a beard similar to the one in the Snapchat filter above.
+- **Conservative test of concept**: By this I mean the differences in images are so slight, so subtle, that detecting any significant difference in outcomes between them would be a good indictor of some effect. In other words, if there's a difference in perceived age with *these* photos, just imagine what the effect might look like if I had a beard similar to the one in the photo filter above.
 
-Finally, there's the threat of internal validity, because, well, these images aren't framed in *exactly* the same way, and to that I 100% agree. But at the same time, these are selfies I took in my apartment bathroom for a silly research project I did for fun, so... let a grad student live. 
+Finally, there's the threat of internal validity, because, well, these images aren't *exactly* identical — with the exception of the beard. But at the same time, these are selfies I took in my apartment bathroom for a silly research project I did for fun, so... let a grad student live. 
 
 ### The Case for Glasses as a Second Exploratory Factor
 
 Already, this project has some decent curiosity going for it. Answer a prevailing question raised by my college-age self about the relationship between facial hair and perceived age. Sounds interesting enough, right?
 
-Well, a main effect of **BEARD** wasn't enough for me. I wanted to add a second factor to the mix, which is where glasses come in. More specifically, does wearing vs. not wearing glasses (**GLASSES**) affect how old people think I am? Or, even more interesting, does GLASSES interact with BEARD, such that I look older with a beard when I'm *not* wearing glasses and older without a beard when I *am* wearing glasses? (Note: I acknowledge that this last sentence sounds like word salad, but such is the nature of statistical interactions.)
+Well, a main effect of having a beard wasn't enough for me. I wanted to add a second factor to the mix, which is where glasses come in. More specifically, does wearing vs. not wearing glasses affect how old people think I am? Or, even more interesting, does wearing glasses interact with having a beard, such that I look older with a beard when I'm *not* wearing glasses and older without a beard when I *am* wearing glasses? (Note: I acknowledge that this last sentence sounds like word salad, but such is the nature of statistical interactions.)
 
-While I don't have any Facebook statuses to motivate this aspect of my design, I have personal reasons to include GLASSES as an exploratory factor. Most notably, friends have told me I look professional and scholarly when I wear them. (I think they're just being nice. Perhaps the data from impartial strangers will suggest otherwise.)
+While I don't have any Facebook statuses to motivate this aspect of my design, I have personal reasons to include glasses as an exploratory factor. Most notably, friends have told me I look professional and scholarly when I wear them. (I think they're just being nice. Perhaps the data from impartial strangers will suggest otherwise.)
 
 So, without further ado, here is the 2 (beard: yes vs. no) $\times$ 2 (glasses: yes vs. no) taxonomy I created for the current study.
 
@@ -311,7 +309,7 @@ ggplot(summary, aes(x = beard, y = mean, fill = glasses)) +
                 position = pd, width = 0.2) +
   scale_fill_OkabeIto() +
   coord_cartesian(ylim = c(20, 30)) +
-  labs(x = "Beard", y = "Perceived Age", fill = "Glasses", title = "Age, re: Beard + Glasses", subtitle = "When I'm not wearing glasses, having a beard makes me look a year and a half older", caption = "Dashed line indicates current age = 25") +
+  labs(x = "Beard", y = "Perceived Age", fill = "Glasses", title = "Age, re: Beard + Glasses", subtitle = "When I'm not wearing glasses, having a beard makes a noticeable difference", caption = "Dashed line indicates current age = 25") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
@@ -324,7 +322,7 @@ ggplot(summary, aes(x = beard, y = mean, fill = glasses)) +
 
 First, let's talk basic findings. Participants thought I was the oldest when they saw me with a beard and no glasses (*M* = 27.50, *SD* = 4.38) and the youngest when they saw me with no beard and no glasses (*M* = 26.00, *SD* = 4.12). Still, all conditions thought I was, on average, older than my actual age (25).
 
-Also, despite the non-significant results, we do see somewhat of a crossover interaction emerge. This appears to be driven mostly by the effect of **BEARD** when I'm not wearing glasses. Look at those orange bars! When I wasn't wearing glasses, having a beard increased my perceived age by about a year and a half. Further, there was a slight positive effect of wearing glasses when I didn't have a beard. Glasses made me look a few months older. I'll have to keep all this in mind the next time I visit my favorite happy hour spots in New Jersey and Oregon. 
+Also, despite the non-significant results, we do see somewhat of a crossover interaction emerge. This appears to be driven mostly by the effect of **BEARD** when I'm not wearing glasses. Look at those orange bars! Having a beard seems to have the greatest impact on my perceived age when I'm not wearing glasses. I'll have to keep all this in mind the next time I visit my favorite happy hour spots in New Jersey and Oregon. 
 
 ### How Should I Maximize My Perceived Attractiveness?
 
@@ -395,7 +393,7 @@ ggplot(summary, aes(x = beard, y = mean, fill = glasses)) +
                 position = pd, width = 0.2) +
   facet_wrap(~gen) +
   scale_fill_OkabeIto() +
-  labs(x = "Beard", y = "Attractiveness", fill = "Glasses", title = "Attractiveness, re: Beard + Glasses", subtitle = "Women find me most attractive with a beard and glasses") +
+  labs(x = "Beard", y = "Attractiveness", fill = "Glasses", title = "Attractiveness, re: Beard + Glasses", subtitle = "Very different pattern of effects for men and women") +
   theme(plot.title = element_text(size = 30, face = "bold", hjust = 0.5), 
         plot.subtitle = element_text(size = 15, hjust = 0.5),
         legend.title = element_text(size = 20, face = "bold"),
@@ -409,11 +407,11 @@ I'll break this down for men and women:
 
 Whether or not I had a beard, men found me more attractive when I *wasn't* wearing glasses. In fact, the combination of beard and glasses is what men found *least* attractive (*M* = 3.67, *SD* = 1.37). Meanwhile, women found that exact combination the *most* attractive (*M* = 5.17, *SD* = 1.52). This is curious. Let me know if you have any theoretical foundation as to why this pattern of effects would occur.
 
-Still, any cross-comparisons between men and women in this regard could be biased. Predictably, attractiveness ratings were higher among females than males, as men presumably found it uncomfortable to call another man "attractive." Men in this sample may have therefore reduced their attractiveness ratings to preserve their masculinity. *"If I recognize this dude as attractive, it makes me less of a man. We can't have that."*
+Perhaps any cross-comparisons between men and women in this regard are biased. Predictably, attractiveness ratings were higher overall among females than males, as men presumably found it uncomfortable to call a strange man on the Internet "attractive." Men in this sample may have therefore reduced their attractiveness ratings to preserve their masculinity. *"If I recognize this dude as attractive, it makes me less of a man. We can't have that."*
 
 Such bias could have been reduced if I'd asked participants to rate my "handsomeness" as opposed to "attractiveness," although it is debatable whether these constructs actually mean the same thing in their colloquial use.
 
-Regardless, my conclusion upon reviewing these results is... women like me in glasses. 
+Regardless, my conclusion upon reviewing these results is... maybe wear glasses more. 
 
 ### Assemblage of Exploratory Traits
 
@@ -474,7 +472,7 @@ A few themes emerged from my scanning of the data.
 
 ### Excited, Fun, Goofy
 
-Again, I think smiling big in the pictures elicited these types of responses. One person even likened my expression to that of a Pixar character... Question is, am I more of a Woody or a Buzz Lightyear?
+Again, I think smiling big in the pictures elicited these types of responses. One person even likened my expression to that of a Pixar character.
 
 ```{r goofy}
 quotes <- data.frame(quote = c(d$free[[18]], d$free[[21]], d$free[[23]], d$free[[41]], d$free[[67]]))
@@ -494,7 +492,7 @@ kable(quotes, col.names = NULL)
 
 ### Comparisons to Seth Rogen
 
-I wish I was making this up. Three *different* participants compared me to Seth Rogen. I will say, all of these responses came from those exposed to a picture of me in glasses. I asked some colleagues of mine if they thought I bore resemblance to Seth Rogen. Almost everyone said yes. Nothing against the man — I just don't know how great a compliment it is for someone to say you look like him.
+I wish I was making this up. Three *different* participants compared me to Seth Rogen. I will say, all of these responses came from those exposed to a picture of me in glasses. I asked some colleagues of mine if they thought I bore resemblance to Seth Rogen. Almost everyone said yes. Nothing against the man — I just don't know how great a compliment it is for a noticeable amount of my sample to say I look like him.
 
 ```{r rogen}
 quotes <- data.frame(quote = c(d$free[[120]], d$free[[142]], d$free[[46]]))
